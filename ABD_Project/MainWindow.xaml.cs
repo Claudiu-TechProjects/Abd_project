@@ -10,19 +10,42 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ABD_Project
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    static public class CurrentUser
+    {
+        public static Users user { get; set; }
+    }
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
         }
+      
+
+        private void Profil(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
+            
+        }
+
+        private void Shutdown(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+        private void sidebar_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            var selected = sidebar.SelectedItem as NavButton;
+
+            navframe.Navigate(selected.Navlink);
+
+        }
+
     }
 }

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="03017daeb0e64822b51e884a5ceb51ca" Name="Diagram1">
+        <EntityTypeShape EntityType="BookingModel.TipCamera" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingModel.TipFacilitate" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingModel.Unitati" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingModel.Users" Width="1.5" PointX="7.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingModel.CamereDisp" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingModel.PretCamera" Width="1.5" PointX="5.25" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingModel.Rezervari" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <AssociationConnector Association="BookingModel.FK__CamereDis__IDTip__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingModel.FK__PretCamer__IDTip__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingModel.FK__Rezervari__IDTip__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingModel.FK__CamereDis__IDUni__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingModel.FK__PretCamer__IDUni__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingModel.FK__Rezervari__IDUni__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingModel.Facilitati" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

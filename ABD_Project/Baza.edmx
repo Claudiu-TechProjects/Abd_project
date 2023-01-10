@@ -1,0 +1,571 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BookingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Booking.dbo.CamereDisp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CamereDisp">
+          <Key>
+            <PropertyRef Name="IDUnitate" />
+            <PropertyRef Name="IDTipCamera" />
+            <PropertyRef Name="NrDisp" />
+          </Key>
+          <Property Name="IDUnitate" Type="int" Nullable="false" />
+          <Property Name="IDTipCamera" Type="int" Nullable="false" />
+          <Property Name="NrDisp" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Booking.dbo.Facilitati' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Facilitati">
+          <Key>
+            <PropertyRef Name="IDUnitate" />
+            <PropertyRef Name="IDTipFacilitate" />
+          </Key>
+          <Property Name="IDUnitate" Type="int" Nullable="false" />
+          <Property Name="IDTipFacilitate" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Booking.dbo.PretCamera' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PretCamera">
+          <Key>
+            <PropertyRef Name="IDUnitate" />
+            <PropertyRef Name="IDTipCamera" />
+            <PropertyRef Name="Pret" />
+          </Key>
+          <Property Name="IDUnitate" Type="int" Nullable="false" />
+          <Property Name="IDTipCamera" Type="int" Nullable="false" />
+          <Property Name="Pret" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'Booking.dbo.Rezervari' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Rezervari">
+          <Key>
+            <PropertyRef Name="IDUnitate" />
+            <PropertyRef Name="IDTipCamera" />
+            <PropertyRef Name="StartDate" />
+            <PropertyRef Name="EndDate" />
+          </Key>
+          <Property Name="IDUnitate" Type="int" Nullable="false" />
+          <Property Name="IDTipCamera" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="date" Nullable="false" />
+          <Property Name="EndDate" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipCamera">
+          <Key>
+            <PropertyRef Name="IDTipCamera" />
+          </Key>
+          <Property Name="IDTipCamera" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NrLocuri" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TipFacilitate">
+          <Key>
+            <PropertyRef Name="IDTipFacilitate" />
+          </Key>
+          <Property Name="IDTipFacilitate" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Denumire" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Pret" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Unitati">
+          <Key>
+            <PropertyRef Name="IDUnitate" />
+          </Key>
+          <Property Name="IDUnitate" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nume" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Adresa" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Oras" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Judet" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Stele" Type="int" Nullable="false" />
+          <Property Name="Recenzii" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="IDUser" />
+          </Key>
+          <Property Name="IDUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nume" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Prenume" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Parola" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Adresa" Type="nvarchar" MaxLength="40" />
+          <Property Name="Email" Type="nvarchar" MaxLength="40" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK__CamereDis__IDTip__2A4B4B5E">
+          <End Role="TipCamera" Type="Self.TipCamera" Multiplicity="1" />
+          <End Role="CamereDisp" Type="Self.CamereDisp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipCamera">
+              <PropertyRef Name="IDTipCamera" />
+            </Principal>
+            <Dependent Role="CamereDisp">
+              <PropertyRef Name="IDTipCamera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CamereDis__IDUni__29572725">
+          <End Role="Unitati" Type="Self.Unitati" Multiplicity="1" />
+          <End Role="CamereDisp" Type="Self.CamereDisp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unitati">
+              <PropertyRef Name="IDUnitate" />
+            </Principal>
+            <Dependent Role="CamereDisp">
+              <PropertyRef Name="IDUnitate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Facilitat__IDTip__34C8D9D1">
+          <End Role="TipFacilitate" Type="Self.TipFacilitate" Multiplicity="1" />
+          <End Role="Facilitati" Type="Self.Facilitati" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipFacilitate">
+              <PropertyRef Name="IDTipFacilitate" />
+            </Principal>
+            <Dependent Role="Facilitati">
+              <PropertyRef Name="IDTipFacilitate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Facilitat__IDUni__33D4B598">
+          <End Role="Unitati" Type="Self.Unitati" Multiplicity="1" />
+          <End Role="Facilitati" Type="Self.Facilitati" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unitati">
+              <PropertyRef Name="IDUnitate" />
+            </Principal>
+            <Dependent Role="Facilitati">
+              <PropertyRef Name="IDUnitate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PretCamer__IDTip__2D27B809">
+          <End Role="TipCamera" Type="Self.TipCamera" Multiplicity="1" />
+          <End Role="PretCamera" Type="Self.PretCamera" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipCamera">
+              <PropertyRef Name="IDTipCamera" />
+            </Principal>
+            <Dependent Role="PretCamera">
+              <PropertyRef Name="IDTipCamera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PretCamer__IDUni__2C3393D0">
+          <End Role="Unitati" Type="Self.Unitati" Multiplicity="1" />
+          <End Role="PretCamera" Type="Self.PretCamera" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unitati">
+              <PropertyRef Name="IDUnitate" />
+            </Principal>
+            <Dependent Role="PretCamera">
+              <PropertyRef Name="IDUnitate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rezervari__IDTip__300424B4">
+          <End Role="TipCamera" Type="Self.TipCamera" Multiplicity="1" />
+          <End Role="Rezervari" Type="Self.Rezervari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipCamera">
+              <PropertyRef Name="IDTipCamera" />
+            </Principal>
+            <Dependent Role="Rezervari">
+              <PropertyRef Name="IDTipCamera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rezervari__IDUni__2F10007B">
+          <End Role="Unitati" Type="Self.Unitati" Multiplicity="1" />
+          <End Role="Rezervari" Type="Self.Rezervari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unitati">
+              <PropertyRef Name="IDUnitate" />
+            </Principal>
+            <Dependent Role="Rezervari">
+              <PropertyRef Name="IDUnitate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BookingModelStoreContainer">
+          <EntitySet Name="TipCamera" EntityType="Self.TipCamera" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipFacilitate" EntityType="Self.TipFacilitate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Unitati" EntityType="Self.Unitati" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CamereDisp" EntityType="Self.CamereDisp" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CamereDisp].[IDUnitate] AS [IDUnitate], 
+    [CamereDisp].[IDTipCamera] AS [IDTipCamera], 
+    [CamereDisp].[NrDisp] AS [NrDisp]
+    FROM [dbo].[CamereDisp] AS [CamereDisp]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Facilitati" EntityType="Self.Facilitati" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Facilitati].[IDUnitate] AS [IDUnitate], 
+    [Facilitati].[IDTipFacilitate] AS [IDTipFacilitate]
+    FROM [dbo].[Facilitati] AS [Facilitati]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PretCamera" EntityType="Self.PretCamera" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PretCamera].[IDUnitate] AS [IDUnitate], 
+    [PretCamera].[IDTipCamera] AS [IDTipCamera], 
+    [PretCamera].[Pret] AS [Pret]
+    FROM [dbo].[PretCamera] AS [PretCamera]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Rezervari" EntityType="Self.Rezervari" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Rezervari].[IDUnitate] AS [IDUnitate], 
+    [Rezervari].[IDTipCamera] AS [IDTipCamera], 
+    [Rezervari].[StartDate] AS [StartDate], 
+    [Rezervari].[EndDate] AS [EndDate]
+    FROM [dbo].[Rezervari] AS [Rezervari]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__CamereDis__IDTip__2A4B4B5E" Association="Self.FK__CamereDis__IDTip__2A4B4B5E">
+            <End Role="TipCamera" EntitySet="TipCamera" />
+            <End Role="CamereDisp" EntitySet="CamereDisp" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CamereDis__IDUni__29572725" Association="Self.FK__CamereDis__IDUni__29572725">
+            <End Role="Unitati" EntitySet="Unitati" />
+            <End Role="CamereDisp" EntitySet="CamereDisp" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Facilitat__IDTip__34C8D9D1" Association="Self.FK__Facilitat__IDTip__34C8D9D1">
+            <End Role="TipFacilitate" EntitySet="TipFacilitate" />
+            <End Role="Facilitati" EntitySet="Facilitati" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Facilitat__IDUni__33D4B598" Association="Self.FK__Facilitat__IDUni__33D4B598">
+            <End Role="Unitati" EntitySet="Unitati" />
+            <End Role="Facilitati" EntitySet="Facilitati" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PretCamer__IDTip__2D27B809" Association="Self.FK__PretCamer__IDTip__2D27B809">
+            <End Role="TipCamera" EntitySet="TipCamera" />
+            <End Role="PretCamera" EntitySet="PretCamera" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PretCamer__IDUni__2C3393D0" Association="Self.FK__PretCamer__IDUni__2C3393D0">
+            <End Role="Unitati" EntitySet="Unitati" />
+            <End Role="PretCamera" EntitySet="PretCamera" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rezervari__IDTip__300424B4" Association="Self.FK__Rezervari__IDTip__300424B4">
+            <End Role="TipCamera" EntitySet="TipCamera" />
+            <End Role="Rezervari" EntitySet="Rezervari" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rezervari__IDUni__2F10007B" Association="Self.FK__Rezervari__IDUni__2F10007B">
+            <End Role="Unitati" EntitySet="Unitati" />
+            <End Role="Rezervari" EntitySet="Rezervari" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BookingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TipCamera">
+          <Key>
+            <PropertyRef Name="IDTipCamera" />
+          </Key>
+          <Property Name="IDTipCamera" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NrLocuri" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="CamereDisp" Relationship="Self.FK__CamereDis__IDTip__2A4B4B5E" FromRole="TipCamera" ToRole="CamereDisp" />
+          <NavigationProperty Name="PretCamera" Relationship="Self.FK__PretCamer__IDTip__2D27B809" FromRole="TipCamera" ToRole="PretCamera" />
+          <NavigationProperty Name="Rezervari" Relationship="Self.FK__Rezervari__IDTip__300424B4" FromRole="TipCamera" ToRole="Rezervari" />
+        </EntityType>
+        <EntityType Name="TipFacilitate">
+          <Key>
+            <PropertyRef Name="IDTipFacilitate" />
+          </Key>
+          <Property Name="IDTipFacilitate" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Denumire" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pret" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Unitati" Relationship="Self.Facilitati" FromRole="TipFacilitate" ToRole="Unitati" />
+        </EntityType>
+        <EntityType Name="Unitati">
+          <Key>
+            <PropertyRef Name="IDUnitate" />
+          </Key>
+          <Property Name="IDUnitate" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adresa" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Oras" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Judet" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Stele" Type="Int32" Nullable="false" />
+          <Property Name="Recenzii" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CamereDisp" Relationship="Self.FK__CamereDis__IDUni__29572725" FromRole="Unitati" ToRole="CamereDisp" />
+          <NavigationProperty Name="PretCamera" Relationship="Self.FK__PretCamer__IDUni__2C3393D0" FromRole="Unitati" ToRole="PretCamera" />
+          <NavigationProperty Name="Rezervari" Relationship="Self.FK__Rezervari__IDUni__2F10007B" FromRole="Unitati" ToRole="Rezervari" />
+          <NavigationProperty Name="TipFacilitate" Relationship="Self.Facilitati" FromRole="Unitati" ToRole="TipFacilitate" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="IDUser" />
+          </Key>
+          <Property Name="IDUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prenume" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Parola" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Adresa" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CamereDisp">
+          <Key>
+            <PropertyRef Name="IDUnitate" />
+            <PropertyRef Name="IDTipCamera" />
+            <PropertyRef Name="NrDisp" />
+          </Key>
+          <Property Name="IDUnitate" Type="Int32" Nullable="false" />
+          <Property Name="IDTipCamera" Type="Int32" Nullable="false" />
+          <Property Name="NrDisp" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TipCamera" Relationship="Self.FK__CamereDis__IDTip__2A4B4B5E" FromRole="CamereDisp" ToRole="TipCamera" />
+          <NavigationProperty Name="Unitati" Relationship="Self.FK__CamereDis__IDUni__29572725" FromRole="CamereDisp" ToRole="Unitati" />
+        </EntityType>
+        <EntityType Name="PretCamera">
+          <Key>
+            <PropertyRef Name="IDUnitate" />
+            <PropertyRef Name="IDTipCamera" />
+            <PropertyRef Name="Pret" />
+          </Key>
+          <Property Name="IDUnitate" Type="Int32" Nullable="false" />
+          <Property Name="IDTipCamera" Type="Int32" Nullable="false" />
+          <Property Name="Pret" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TipCamera" Relationship="Self.FK__PretCamer__IDTip__2D27B809" FromRole="PretCamera" ToRole="TipCamera" />
+          <NavigationProperty Name="Unitati" Relationship="Self.FK__PretCamer__IDUni__2C3393D0" FromRole="PretCamera" ToRole="Unitati" />
+        </EntityType>
+        <EntityType Name="Rezervari">
+          <Key>
+            <PropertyRef Name="IDUnitate" />
+            <PropertyRef Name="IDTipCamera" />
+            <PropertyRef Name="StartDate" />
+            <PropertyRef Name="EndDate" />
+          </Key>
+          <Property Name="IDUnitate" Type="Int32" Nullable="false" />
+          <Property Name="IDTipCamera" Type="Int32" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="TipCamera" Relationship="Self.FK__Rezervari__IDTip__300424B4" FromRole="Rezervari" ToRole="TipCamera" />
+          <NavigationProperty Name="Unitati" Relationship="Self.FK__Rezervari__IDUni__2F10007B" FromRole="Rezervari" ToRole="Unitati" />
+        </EntityType>
+        <Association Name="FK__CamereDis__IDTip__2A4B4B5E">
+          <End Role="TipCamera" Type="Self.TipCamera" Multiplicity="1" />
+          <End Role="CamereDisp" Type="Self.CamereDisp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipCamera">
+              <PropertyRef Name="IDTipCamera" />
+            </Principal>
+            <Dependent Role="CamereDisp">
+              <PropertyRef Name="IDTipCamera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PretCamer__IDTip__2D27B809">
+          <End Role="TipCamera" Type="Self.TipCamera" Multiplicity="1" />
+          <End Role="PretCamera" Type="Self.PretCamera" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipCamera">
+              <PropertyRef Name="IDTipCamera" />
+            </Principal>
+            <Dependent Role="PretCamera">
+              <PropertyRef Name="IDTipCamera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rezervari__IDTip__300424B4">
+          <End Role="TipCamera" Type="Self.TipCamera" Multiplicity="1" />
+          <End Role="Rezervari" Type="Self.Rezervari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipCamera">
+              <PropertyRef Name="IDTipCamera" />
+            </Principal>
+            <Dependent Role="Rezervari">
+              <PropertyRef Name="IDTipCamera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CamereDis__IDUni__29572725">
+          <End Role="Unitati" Type="Self.Unitati" Multiplicity="1" />
+          <End Role="CamereDisp" Type="Self.CamereDisp" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unitati">
+              <PropertyRef Name="IDUnitate" />
+            </Principal>
+            <Dependent Role="CamereDisp">
+              <PropertyRef Name="IDUnitate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PretCamer__IDUni__2C3393D0">
+          <End Role="Unitati" Type="Self.Unitati" Multiplicity="1" />
+          <End Role="PretCamera" Type="Self.PretCamera" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unitati">
+              <PropertyRef Name="IDUnitate" />
+            </Principal>
+            <Dependent Role="PretCamera">
+              <PropertyRef Name="IDUnitate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rezervari__IDUni__2F10007B">
+          <End Role="Unitati" Type="Self.Unitati" Multiplicity="1" />
+          <End Role="Rezervari" Type="Self.Rezervari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unitati">
+              <PropertyRef Name="IDUnitate" />
+            </Principal>
+            <Dependent Role="Rezervari">
+              <PropertyRef Name="IDUnitate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Facilitati">
+          <End Role="TipFacilitate" Type="Self.TipFacilitate" Multiplicity="*" />
+          <End Role="Unitati" Type="Self.Unitati" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="BookingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TipCamera" EntityType="Self.TipCamera" />
+          <EntitySet Name="TipFacilitate" EntityType="Self.TipFacilitate" />
+          <EntitySet Name="Unitati" EntityType="Self.Unitati" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="CamereDisp" EntityType="Self.CamereDisp" />
+          <EntitySet Name="PretCamera" EntityType="Self.PretCamera" />
+          <EntitySet Name="Rezervari" EntityType="Self.Rezervari" />
+          <AssociationSet Name="FK__CamereDis__IDTip__2A4B4B5E" Association="Self.FK__CamereDis__IDTip__2A4B4B5E">
+            <End Role="TipCamera" EntitySet="TipCamera" />
+            <End Role="CamereDisp" EntitySet="CamereDisp" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PretCamer__IDTip__2D27B809" Association="Self.FK__PretCamer__IDTip__2D27B809">
+            <End Role="TipCamera" EntitySet="TipCamera" />
+            <End Role="PretCamera" EntitySet="PretCamera" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rezervari__IDTip__300424B4" Association="Self.FK__Rezervari__IDTip__300424B4">
+            <End Role="TipCamera" EntitySet="TipCamera" />
+            <End Role="Rezervari" EntitySet="Rezervari" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CamereDis__IDUni__29572725" Association="Self.FK__CamereDis__IDUni__29572725">
+            <End Role="Unitati" EntitySet="Unitati" />
+            <End Role="CamereDisp" EntitySet="CamereDisp" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PretCamer__IDUni__2C3393D0" Association="Self.FK__PretCamer__IDUni__2C3393D0">
+            <End Role="Unitati" EntitySet="Unitati" />
+            <End Role="PretCamera" EntitySet="PretCamera" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rezervari__IDUni__2F10007B" Association="Self.FK__Rezervari__IDUni__2F10007B">
+            <End Role="Unitati" EntitySet="Unitati" />
+            <End Role="Rezervari" EntitySet="Rezervari" />
+          </AssociationSet>
+          <AssociationSet Name="Facilitati" Association="Self.Facilitati">
+            <End Role="TipFacilitate" EntitySet="TipFacilitate" />
+            <End Role="Unitati" EntitySet="Unitati" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BookingModelStoreContainer" CdmEntityContainer="BookingEntities">
+          <EntitySetMapping Name="TipCamera">
+            <EntityTypeMapping TypeName="BookingModel.TipCamera">
+              <MappingFragment StoreEntitySet="TipCamera">
+                <ScalarProperty Name="IDTipCamera" ColumnName="IDTipCamera" />
+                <ScalarProperty Name="NrLocuri" ColumnName="NrLocuri" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipFacilitate">
+            <EntityTypeMapping TypeName="BookingModel.TipFacilitate">
+              <MappingFragment StoreEntitySet="TipFacilitate">
+                <ScalarProperty Name="IDTipFacilitate" ColumnName="IDTipFacilitate" />
+                <ScalarProperty Name="Denumire" ColumnName="Denumire" />
+                <ScalarProperty Name="Pret" ColumnName="Pret" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Unitati">
+            <EntityTypeMapping TypeName="BookingModel.Unitati">
+              <MappingFragment StoreEntitySet="Unitati">
+                <ScalarProperty Name="IDUnitate" ColumnName="IDUnitate" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+                <ScalarProperty Name="Oras" ColumnName="Oras" />
+                <ScalarProperty Name="Judet" ColumnName="Judet" />
+                <ScalarProperty Name="Stele" ColumnName="Stele" />
+                <ScalarProperty Name="Recenzii" ColumnName="Recenzii" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="BookingModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Parola" ColumnName="Parola" />
+                <ScalarProperty Name="Adresa" ColumnName="Adresa" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CamereDisp">
+            <EntityTypeMapping TypeName="BookingModel.CamereDisp">
+              <MappingFragment StoreEntitySet="CamereDisp">
+                <ScalarProperty Name="IDUnitate" ColumnName="IDUnitate" />
+                <ScalarProperty Name="IDTipCamera" ColumnName="IDTipCamera" />
+                <ScalarProperty Name="NrDisp" ColumnName="NrDisp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PretCamera">
+            <EntityTypeMapping TypeName="BookingModel.PretCamera">
+              <MappingFragment StoreEntitySet="PretCamera">
+                <ScalarProperty Name="IDUnitate" ColumnName="IDUnitate" />
+                <ScalarProperty Name="IDTipCamera" ColumnName="IDTipCamera" />
+                <ScalarProperty Name="Pret" ColumnName="Pret" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rezervari">
+            <EntityTypeMapping TypeName="BookingModel.Rezervari">
+              <MappingFragment StoreEntitySet="Rezervari">
+                <ScalarProperty Name="IDUnitate" ColumnName="IDUnitate" />
+                <ScalarProperty Name="IDTipCamera" ColumnName="IDTipCamera" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Facilitati" TypeName="BookingModel.Facilitati" StoreEntitySet="Facilitati">
+            <EndProperty Name="TipFacilitate">
+              <ScalarProperty Name="IDTipFacilitate" ColumnName="IDTipFacilitate" />
+            </EndProperty>
+            <EndProperty Name="Unitati">
+              <ScalarProperty Name="IDUnitate" ColumnName="IDUnitate" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

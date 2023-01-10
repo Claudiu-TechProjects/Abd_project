@@ -1,0 +1,44 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ABD_Project"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" x:Class="ABD_Project.Login"
+        mc:Ignorable="d"
+        Title="Login" Height="661" Width="400" Background="#FF00367F"
+    WindowStartupLocation="CenterScreen"
+    WindowStyle="None">
+
+    <Grid >
+        <Button x:Name="btnLogin" Click="btn_Login"  Content="Login" HorizontalAlignment="Center" IsDefault="True" Margin="0,312,0,0" Width="144" VerticalAlignment="Top" Visibility="Visible" Background="#FF00367F" BorderBrush="Black" Foreground="White"/>
+        <Button x:Name="btnSign" Click="btn_Register"  Content="Sign in?" HorizontalAlignment="Center" Width="74" VerticalAlignment="Top" Visibility="Visible" Background="#FF00367F" BorderBrush="Black" Foreground="White" Height="25" Margin="0,345,0,0" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="0"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="0"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Image Source="/Images/2.jpeg" HorizontalAlignment="Center" Margin="0,-5,0,464" Width="306" Stretch="Uniform"/>
+
+
+        <StackPanel Margin="84,194,88,338" RenderTransformOrigin="0.951,0.435" HorizontalAlignment="Center">
+
+            <TextBlock Text="Username" Foreground="White" />
+            <TextBox x:Name="UsernameTextBox" Height="25" Width="175" />
+            <TextBlock Text="Password" Foreground="White" />
+            <PasswordBox x:Name="PasswordBox" Height="26" HorizontalAlignment="Center" Width="174" />
+
+        </StackPanel>
+        <Image HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="158"  Width="239"  Source="/Images/beach.jpeg" Margin="78,0,0,25"/>
+
+        <Button Background="#FF00367F" BorderBrush="#FF00367F" Click="Shutdown" Margin="339,4,1,602">
+            <Image Source="/Images/shutdown_def.png" ></Image>
+
+        </Button>
+
+    </Grid>
+</Window>

@@ -1,0 +1,33 @@
+﻿<Page x:Class="ABD_Project.Pages.Page3"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:ABD_Project.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1000"
+      Title="Page3"
+      Background="#FF00367F">
+
+    <Grid>
+        <TextBlock Text="Orașe"  Foreground="White" Margin="10,94,739,684" />
+        <TextBlock Text="Tipul Camerei" Foreground="White" Margin="362,94,561,684"></TextBlock>
+        <TextBlock Text="Hoteluri disponibile:"  FontSize="30" Foreground="White" Margin="371,257,361,510" />
+        <TextBlock Text="Inregistrează o rezervare!" FontSize="30"  Foreground="White" Margin="326,10,316,751" />
+        <TextBlock Text="Din data de:"  Foreground="White" Margin="10,184,914,594" />
+        <TextBlock Text="pana la:" Foreground="White" Margin="362,184,591,594"></TextBlock>
+
+        <DatePicker   HorizontalAlignment="Left" Margin="489,184,0,0" VerticalAlignment="Top" Height="22" Width="140" />
+
+        <DatePicker   HorizontalAlignment="Left" Margin="114,184,0,0" VerticalAlignment="Top" Height="22" Width="145"/>
+        <ComboBox HorizontalAlignment="Left" Margin="114,93,0,0" VerticalAlignment="Top" Width="145"/>
+        <ComboBox HorizontalAlignment="Left" Margin="489,93,0,0" VerticalAlignment="Top" Width="140"/>
+        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="47,328,51,68" RenderTransformOrigin="0.5,0.5" >
+            <DataGrid.Columns></DataGrid.Columns>
+        </DataGrid>
+
+
+
+    </Grid>
+</Page>
