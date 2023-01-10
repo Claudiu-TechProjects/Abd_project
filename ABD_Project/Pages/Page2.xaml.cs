@@ -15,11 +15,6 @@ using System.Windows.Shapes;
 
 namespace ABD_Project.Pages
 {
-    /// <summary>
-    /// Interaction logic for Page2.xaml
-    /// </summary>
-    /// 
-    
     public partial class Page2 : UserControl
     {
         private MainWindow main;
@@ -36,9 +31,6 @@ namespace ABD_Project.Pages
             labelPrenume.Content = CurrentUser.user.Prenume;
             labelTelefon.Content = CurrentUser.user.Telefon;
             labelEmail.Content = CurrentUser.user.Email;
-
-
-
         }
 
         //Users user = Application.Current.Windows[0];
@@ -47,11 +39,7 @@ namespace ABD_Project.Pages
             Login loging = new Login();
             loging.Show();
             Window.GetWindow(this).Close();
-           
-            
-
         }
 
     }
-
 }

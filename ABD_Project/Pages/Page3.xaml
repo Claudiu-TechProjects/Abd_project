@@ -18,12 +18,19 @@
         <TextBlock Text="Din data de:"  Foreground="White" Margin="10,184,914,594" />
         <TextBlock Text="pana la:" Foreground="White" Margin="362,184,591,594"></TextBlock>
 
-        <DatePicker   HorizontalAlignment="Left" Margin="489,184,0,0" VerticalAlignment="Top" Height="22" Width="140" />
+        <DatePicker x:Name="Sfarsit" HorizontalAlignment="Left" Margin="489,184,0,0" VerticalAlignment="Top" Height="22" Width="140" />
+        <DatePicker x:Name="Inceput" HorizontalAlignment="Left" Margin="114,184,0,0" VerticalAlignment="Top" Height="22" Width="145"/>
 
-        <DatePicker   HorizontalAlignment="Left" Margin="114,184,0,0" VerticalAlignment="Top" Height="22" Width="145"/>
-        <ComboBox HorizontalAlignment="Left" Margin="114,93,0,0" VerticalAlignment="Top" Width="145"/>
-        <ComboBox HorizontalAlignment="Left" Margin="489,93,0,0" VerticalAlignment="Top" Width="140"/>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=5}" Margin="47,328,51,68" RenderTransformOrigin="0.5,0.5" >
+        <ComboBox x:Name="Orase" HorizontalAlignment="Left" Margin="114,93,0,0" VerticalAlignment="Top" Width="145" ItemsSource="{Binding OraseList}" SelectedItem="{Binding SelectedOras}" SelectionChanged="ComboBox_SelectionChangedOrase"/>
+        <ComboBox x:Name="Camere" HorizontalAlignment="Left" Margin="489,93,0,0" VerticalAlignment="Top" Width="140" SelectionChanged="ComboBox_SelectionChangedCamere"/>
+
+
+
+        <Button Margin="752,128,86,627" Content ="Cauta" Background="#FF00367F" Foreground="White" FontSize="20" Name="btn_Cauta" Click="btn_Cauta_Click"></Button>
+
+
+
+        <DataGrid Name="DataGridHoteluri" Margin="47,328,51,68" RenderTransformOrigin="0.5,0.5" >
             <DataGrid.Columns></DataGrid.Columns>
         </DataGrid>
 

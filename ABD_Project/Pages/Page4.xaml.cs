@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace ABD_Project.Pages
 {
-    /// <summary>
-    /// Interaction logic for Page4.xaml
-    /// </summary>
     public partial class Page4 : Page
     {
         public Page4()
