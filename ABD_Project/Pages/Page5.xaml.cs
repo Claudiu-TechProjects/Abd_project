@@ -21,5 +21,15 @@ namespace ABD_Project.Pages
         {
             InitializeComponent();
         }
+
+        private void btn_trimite(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btn_descarcare(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

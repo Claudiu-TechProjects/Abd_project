@@ -59,5 +59,10 @@ namespace ABD_Project.Pages
             }
             Poza.Source = new BitmapImage(new Uri(@"Images/Hotel/Intercontinental/" + photoIndex + ".jpeg", UriKind.Relative));
         }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

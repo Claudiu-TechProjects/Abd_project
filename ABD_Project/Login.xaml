@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ABD_Project"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" x:Class="ABD_Project.Login"
         mc:Ignorable="d"
-        Title="Login" Height="661" Width="400" Background="#FF00367F"
+        Title="Login" Height="661" Width="400" Background="#FF00367F"  ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None">
 

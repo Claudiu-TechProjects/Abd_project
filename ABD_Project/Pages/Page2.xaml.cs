@@ -32,6 +32,10 @@ namespace ABD_Project.Pages
             labelPrenume.Content = CurrentUser.user.Prenume;
             labelTelefon.Content = CurrentUser.user.Telefon;
             labelEmail.Content = CurrentUser.user.Email;
+            
+            //to do 
+
+            // verificare daca are poza de profil(daca o are o afiseaza )
         }
 
         //Users user = Application.Current.Windows[0];
@@ -42,12 +46,12 @@ namespace ABD_Project.Pages
             Window.GetWindow(this).Close();
         }
 
-<<<<<<< Updated upstream
+
         private void ChPassword_Click(object sender, RoutedEventArgs e)
         {
             var chPasss = new ChangePasswordWindow();
             chPasss.Show();
-=======
+        }
         private void btn_Upload(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openDialog = new OpenFileDialog();
@@ -57,7 +61,7 @@ namespace ABD_Project.Pages
             {
                 PozaProfil.Source = new BitmapImage(new Uri(openDialog.FileName));
             }    
->>>>>>> Stashed changes
+
         }
     }
 }

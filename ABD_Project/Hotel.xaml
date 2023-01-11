@@ -5,47 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ABD_Project.Pages"
         mc:Ignorable="d"
-        Title="Hotel" Height="600" Width="1000" WindowStartupLocation="CenterScreen">
+        Title="Hotel" Height="650" Width="850" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#FF00367F">
     <Grid>
-        <Button Margin="124,505,826,29" Click="btn_like" Name="like" Width="50" Height="50">
-            <Image Source="/Images/GlyphCheck_small.png" Height="50" Width="50"></Image>
-        </Button>
-        <Button Margin="192,507,758,27" Click="btn_dislike" Name="dislike" Width="50" Height="50" >
-            <Image Source="/Images/GlyphClose.png" Width="50" Height="50"></Image>
-        </Button>
-        <TextBlock Margin="3,524,888,46" Text="Adauga o recenzie" RenderTransformOrigin="0.5,0.5">
-        </TextBlock>
-        <Button Margin="700,502,200,32" Content="Rezervă"  Click="Rezervare" Name="btn_rezerva" Width="100" Height="50"></Button>
-        <TextBlock Margin="57,42,832,520" Text="Camere disponibile:"></TextBlock>
-        <TextBlock Margin="57,140,888,421" Text="Facilitati:"></TextBlock>
-        <DataGrid Width="250" Height="400" Margin="124,69,626,115" >
-            <DataGrid Name="datagridFacilitati"  HorizontalScrollBarVisibility="Auto" >
+        <Grid Margin="64,424,480,92">
+            <Button  Click="btn_like" Width="30" Height="30" Name="like" Margin="128,19,98,19" >
+                <Image Source="/Images/GlyphCheck_small.png" Stretch="Fill"></Image>
+            </Button>
+            <Button  Click="btn_dislike" Width="30" Height="30" Name="dislike" Margin="191,19,35,19"   >
+                <Image Source="/Images/GlyphClose.png" Stretch="Fill"></Image>
+            </Button>
+            <TextBlock  Text="Adauga o recenzie" Width="100" Height="20" Margin="0,24,156,24" Foreground="White" >
+            </TextBlock>
+        </Grid>
+
+        <TextBlock  Text="Camere disponibile:" Width="110" Height="20" Margin="47,20,643,544" Foreground="White"></TextBlock>
+        <TextBlock  Text="Facilitati:" Width="50" Height="20" Margin="57,156,693,408" Foreground="White"></TextBlock>
+        <DataGrid Width="250" Height="200" Margin="130,88,420,296" >
 
 
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Facilitate" Width="50" Binding="{Binding Facilitate }" IsReadOnly="True" ></DataGridTextColumn>
-                    <DataGridTextColumn Header="Pret" Width="140" Binding="{Binding Pret }" IsReadOnly="True" ></DataGridTextColumn>
-                    <DataGridCheckBoxColumn Header="Adauga"></DataGridCheckBoxColumn>
 
-                </DataGrid.Columns>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Facilitate" Width="100" Binding="{Binding Facilitate }" IsReadOnly="True" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Pret" Width="100" Binding="{Binding Pret }" IsReadOnly="True"  ></DataGridTextColumn>
+                <DataGridCheckBoxColumn Header="Adauga"></DataGridCheckBoxColumn>
+
+            </DataGrid.Columns>
 
 
-            </DataGrid>
+
         </DataGrid>
 
-        <Grid Margin="524,0,24,115" Height="121" VerticalAlignment="Bottom">
+        <Grid x:Name="create_Rezervare" Margin="474,281,76,52" Width="300" Height="280" Background="White">
+
             <Grid.ColumnDefinitions>
 
             </Grid.ColumnDefinitions>
 
+            <Button  Content="Rezervă"  Click="Rezervare" Name="btn_rezerva" Width="50" Height="20" Margin="125,250,125,10" Foreground="White" Background="#FF00367F" BorderBrush="Black"/>
         </Grid>
-        <Grid Margin="539,0,0,303" Background="AliceBlue">
-            <Image x:Name="Poza" Source="/Images/Hotel/Intercontinental/1.jpg" Stretch="Uniform" Margin="0,0,0,63"></Image>
-            <Button x:Name="Next" Click="btn_Next_Photo" Content=" Next" Width="50" Height="20" Margin="305,223,106,8" ></Button>
-            <Button x:Name="Back" Click="btn_Back_Photo" Content=" Back" Width="50" Height="20" Margin="109,238,302,23" ></Button>
+        <Grid  Background="AliceBlue" Width="250" Height="200" Margin="438,20,62,314">
+            <Image x:Name="Poza" Source="/Images/Hotel/Intercontinental/1.jpg" Stretch="Uniform" Margin="0,0,0,50" RenderTransformOrigin="0.5,0.5">
+
+            </Image>
+            <Button x:Name="Next" Click="btn_Next_Photo" Content="Next" Height="20" Width="40" Margin="179,171,31,9"  Foreground="White" Background="#FF00367F" BorderBrush="Black"/>
+            <Button x:Name="Back" Click="btn_Back_Photo" Content="Back" Height="20" Width="40" Margin="55,171,155,9" Foreground="White" Background="#FF00367F" BorderBrush="Black"/>
 
         </Grid>
 
-            <Label  x:Name="labelCamereDisponibile" Content="" Margin="173,37,689,525"  />
+        <Label  x:Name="labelCamereDisponibile" Content="" Width="30" Height="20" Margin="177,20,593,544" Foreground="White" />
     </Grid>
 </Window>

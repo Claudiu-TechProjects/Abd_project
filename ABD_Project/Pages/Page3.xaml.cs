@@ -80,9 +80,7 @@ namespace ABD_Project.Pages
                               
                           };
 
-<<<<<<< Updated upstream
-            DataGridHoteluri.ItemsSource = (from c in Booking.context.Unitati where c.Judet == this.OrasSelectat select c).ToList();
-=======
+
             
             
             DataGridHoteluri.ItemsSource = unitati.ToList();
@@ -95,7 +93,6 @@ namespace ABD_Project.Pages
             Hotel doubleclick = new Hotel();
             doubleclick.Show();
             
->>>>>>> Stashed changes
         }
     }
 }
