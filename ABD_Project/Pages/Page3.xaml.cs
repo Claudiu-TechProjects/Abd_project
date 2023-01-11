@@ -68,8 +68,34 @@ namespace ABD_Project.Pages
             {
                 _ = MessageBox.Show("Data de inceput a rezervarii nu poate fi mai mica decat data de sfarsit a acesteia.");
             }
+            var unitati = from c in Booking.context.Unitati 
+                          where c.Judet == this.OrasSelectat 
+                          select new
+                          {
+                              Nume=c.Nume,
+                              Oras=c.Oras,
+                              Judet= c.Judet,
+                              Adresa= c.Adresa,
+                              Stele=c.Stele
+                              
+                          };
 
+<<<<<<< Updated upstream
             DataGridHoteluri.ItemsSource = (from c in Booking.context.Unitati where c.Judet == this.OrasSelectat select c).ToList();
+=======
+            
+            
+            DataGridHoteluri.ItemsSource = unitati.ToList();
+
+
+        }
+
+        private void Acces_Hotel(object sender, MouseButtonEventArgs e)
+        {
+            Hotel doubleclick = new Hotel();
+            doubleclick.Show();
+            
+>>>>>>> Stashed changes
         }
     }
 }
