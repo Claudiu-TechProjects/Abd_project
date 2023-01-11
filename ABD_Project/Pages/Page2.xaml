@@ -10,9 +10,14 @@
         <Border VerticalAlignment="Top" Height="40" Background="#FF00367F">
         </Border>
         <TextBlock Text="Poza de profil" Foreground="Black" Margin="152,92,574,340"/>
-        <Label x:Name="labelPoza" Margin="252,47,254,278" />
+        <Grid Margin="290,17,294,275">
+            <Button Content="Click to upload" Click="btn_Upload" Name="upload_poza">
+              
+            </Button> 
+            <Image Source="{Binding poza}" Name="PozaProfil"> </Image>
+        </Grid>
 
-        <StackPanel Height="210" Width="500" Margin="2,144,-2,96">
+        <StackPanel Height="210" Width="500" Margin="152,175,148,65">
             <Grid Height="207">
                 <Grid.ColumnDefinitions>
 

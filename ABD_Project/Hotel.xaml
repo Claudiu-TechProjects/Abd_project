@@ -1,0 +1,51 @@
+﻿<Window x:Class="ABD_Project.Pages.Hotel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ABD_Project.Pages"
+        mc:Ignorable="d"
+        Title="Hotel" Height="600" Width="1000" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Button Margin="124,505,826,29" Click="btn_like" Name="like" Width="50" Height="50">
+            <Image Source="/Images/GlyphCheck_small.png" Height="50" Width="50"></Image>
+        </Button>
+        <Button Margin="192,507,758,27" Click="btn_dislike" Name="dislike" Width="50" Height="50" >
+            <Image Source="/Images/GlyphClose.png" Width="50" Height="50"></Image>
+        </Button>
+        <TextBlock Margin="3,524,888,46" Text="Adauga o recenzie" RenderTransformOrigin="0.5,0.5">
+        </TextBlock>
+        <Button Margin="700,502,200,32" Content="Rezervă"  Click="Rezervare" Name="btn_rezerva" Width="100" Height="50"></Button>
+        <TextBlock Margin="57,42,832,520" Text="Camere disponibile:"></TextBlock>
+        <TextBlock Margin="57,140,888,421" Text="Facilitati:"></TextBlock>
+        <DataGrid Width="250" Height="400" Margin="124,69,626,115" >
+            <DataGrid Name="datagridFacilitati"  HorizontalScrollBarVisibility="Auto" >
+
+
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Facilitate" Width="50" Binding="{Binding Facilitate }" IsReadOnly="True" ></DataGridTextColumn>
+                    <DataGridTextColumn Header="Pret" Width="140" Binding="{Binding Pret }" IsReadOnly="True" ></DataGridTextColumn>
+                    <DataGridCheckBoxColumn Header="Adauga"></DataGridCheckBoxColumn>
+
+                </DataGrid.Columns>
+
+
+            </DataGrid>
+        </DataGrid>
+
+        <Grid Margin="524,0,24,115" Height="121" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+
+            </Grid.ColumnDefinitions>
+
+        </Grid>
+        <Grid Margin="539,0,0,303" Background="AliceBlue">
+            <Image x:Name="Poza" Source="/Images/Hotel/Intercontinental/1.jpg" Stretch="Uniform" Margin="0,0,0,63"></Image>
+            <Button x:Name="Next" Click="btn_Next_Photo" Content=" Next" Width="50" Height="20" Margin="305,223,106,8" ></Button>
+            <Button x:Name="Back" Click="btn_Back_Photo" Content=" Back" Width="50" Height="20" Margin="109,238,302,23" ></Button>
+
+        </Grid>
+
+            <Label  x:Name="labelCamereDisponibile" Content="" Margin="173,37,689,525"  />
+    </Grid>
+</Window>
