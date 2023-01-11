@@ -97,6 +97,9 @@
     <Compile Include="CamereDisp.cs">
       <DependentUpon>Baza.tt</DependentUpon>
     </Compile>
+    <Compile Include="ChangePasswordWindow.xaml.cs">
+      <DependentUpon>ChangePasswordWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NavButton.cs" />
     <Compile Include="Pages\Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
@@ -134,6 +137,10 @@
     <Compile Include="Users.cs">
       <DependentUpon>Baza.tt</DependentUpon>
     </Compile>
+    <Page Include="ChangePasswordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

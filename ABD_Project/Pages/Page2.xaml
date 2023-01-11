@@ -45,17 +45,11 @@
                 <TextBlock Text="Telefon:" Foreground="Black"  Grid.Column="0" Grid.Row="4" />
                 <Label  x:Name="labelTelefon" Content=""  Grid.Column="1" Grid.Row="4 "/>
             </Grid>
-
         </StackPanel>
-        
+
 
         <Button x:Name="btnDisconnect" Click="Button_Click" IsDefault="True" Content="Disconnect"   Width="151" Visibility="Visible" Background="White" BorderBrush="#FF00367F" Foreground="#FF00367F" Height="31" FontSize="20" Margin="320,408,330,10"/>
-
-
-
-
-
-
+        <Button x:Name="btnChPassword" Click="ChPassword_Click" IsDefault="False" Content="Change Password" Visibility="Visible" Background="White" BorderBrush="#FF00367F" Foreground="#FF00367F" Height="31" FontSize="20" Margin="531,408,89,10.6"/>
 
     </Grid>
 </UserControl>

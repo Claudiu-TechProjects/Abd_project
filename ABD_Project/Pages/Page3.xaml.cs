@@ -69,8 +69,7 @@ namespace ABD_Project.Pages
                 _ = MessageBox.Show("Data de inceput a rezervarii nu poate fi mai mica decat data de sfarsit a acesteia.");
             }
 
-            DataGridHoteluri.ItemsSource = (from c in Booking.context.Unitati where c.Judet == this.OrasSelectat select c.Judet).ToList();
-
+            DataGridHoteluri.ItemsSource = (from c in Booking.context.Unitati where c.Judet == this.OrasSelectat select c).ToList();
         }
     }
 }

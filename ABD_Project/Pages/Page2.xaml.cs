@@ -41,5 +41,10 @@ namespace ABD_Project.Pages
             Window.GetWindow(this).Close();
         }
 
+        private void ChPassword_Click(object sender, RoutedEventArgs e)
+        {
+            var chPasss = new ChangePasswordWindow();
+            chPasss.Show();
+        }
     }
 }
