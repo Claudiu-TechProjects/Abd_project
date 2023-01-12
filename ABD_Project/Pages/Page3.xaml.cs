@@ -91,8 +91,9 @@ namespace ABD_Project.Pages
         private void Acces_Hotel(object sender, MouseButtonEventArgs e)
         {
             Hotel doubleclick = new Hotel();
-            doubleclick.Show();
+            doubleclick.ShowDialog();
             
+
         }
     }
 }

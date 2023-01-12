@@ -12,7 +12,7 @@
         WindowStyle="None"  ResizeMode="NoResize">
 
 
-    <Grid Background="Black" Margin="0,0,0,0" >
+    <Grid Background="White" Margin="0,0,0,0" >
         <Grid.RowDefinitions>
             <RowDefinition Height="463*"/>
             <RowDefinition Height="352*"/>
@@ -25,7 +25,7 @@
             <ColumnDefinition Width="117*"/>
         </Grid.ColumnDefinitions>
 
-        <ListBox Grid.Column="0" SelectionMode="Single" SelectionChanged="sidebar_SelectionChanged"  Background="#FF00367F" x:Name="sidebar" Margin="0,0,0,50" BorderThickness="0" Grid.RowSpan="2" >
+        <ListBox Grid.Column="0" SelectionMode="Single" SelectionChanged="sidebar_SelectionChanged"  Background="#FF00367F" x:Name="sidebar" Margin="0,0,0,50" BorderThickness="0" Grid.RowSpan="2" BorderBrush="White">
 
             <local:NavButton Navlink="/Pages/Page1.xaml" Margin="3" Padding="6" Icon="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/>
             <local:NavButton Navlink="/Pages/Page2.xaml" Margin="3" Padding="6" Icon="m11.854 27.68c-3.8086-1.0565-7.8656-5.18-8.9719-9.119-1.8822-6.7015 2.5388-13.964 9.6123-15.79 9.8082-2.5321 19.111 6.3866 16.47 15.79-1.1566 4.118-5.1812 8.0501-9.3854 9.1696-3.7015 0.98562-3.9964 0.98368-7.7246-0.05055zm9.2806-8.183c0-2.3212-2.3471-4.2232-5.2115-4.2232s-5.2115 1.902-5.2115 4.2232c0 1.4077 0.64339 1.606 5.2115 1.606s5.2115-0.19827 5.2115-1.606zm-3.04-7.5541c0-1.5262-0.52266-2.153-1.9582-2.3484-2.1342-0.29055-3.3463 1.4953-2.4815 3.6559 0.31391 0.78427 1.307 1.2008 2.4815 1.0409 1.4355-0.19544 1.9582-0.82225 1.9582-2.3484z"/>
@@ -42,7 +42,7 @@
 
         <Image Source="/Images/1.jpg" HorizontalAlignment="Left" Width="1150" Stretch="Fill" Grid.ColumnSpan="2" Grid.Column="1" Grid.RowSpan="2"/>
 
-        <Frame x:Name="navframe" NavigationUIVisibility="Hidden" Background="Transparent" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Column="1" />
+        <Frame x:Name="navframe" NavigationUIVisibility="Hidden" Background="Transparent" Grid.ColumnSpan="2" Grid.RowSpan="2" Grid.Column="1" BorderBrush="White" />
 
     </Grid>
 </Window>

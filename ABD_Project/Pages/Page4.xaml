@@ -12,7 +12,7 @@
     <Grid>
         <Grid  Width="360" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,44,0,0" >
             <TextBlock Text="Rezervarile tale, " Foreground="white" Width="180" Height="50" HorizontalAlignment="Left" FontSize="25"></TextBlock>
-            <Label Content="" Name="NameUser"   FontSize="25" Width="180" Margin="180,0,0,0"></Label>
+            <Label Content="" Name="NameUser"   FontSize="25" Width="180" Margin="180,0,0,0" Foreground="White" HorizontalAlignment="Left"></Label>
 
         </Grid>
 
