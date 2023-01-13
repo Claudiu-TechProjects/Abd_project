@@ -15,14 +15,19 @@ using System.Windows.Shapes;
 
 namespace ABD_Project.Pages
 {
-    /// <summary>
-    /// Interaction logic for Page4.xaml
-    /// </summary>
     public partial class Page4 : Page
     {
         public Page4()
         {
             InitializeComponent();
+            NameUser.Content = CurrentUser.user.Prenume;
+        }
+
+        private void Acces_Rezervare(object sender, MouseButtonEventArgs e)
+        {
+            Rezervare rezervare = new Rezervare();
+            rezervare.ShowDialog();
+
         }
     }
 }

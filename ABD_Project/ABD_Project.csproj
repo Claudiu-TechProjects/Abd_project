@@ -41,10 +41,6 @@
     <ApplicationIcon>Images\logo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevExpress.Data.Desktop.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Data.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Mvvm.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Xpf.Core.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -98,10 +94,19 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Baza.edmx</DependentUpon>
     </Compile>
-    <Compile Include="CamereDisp.cs">
+    <Compile Include="CamereOcupate.cs">
       <DependentUpon>Baza.tt</DependentUpon>
     </Compile>
+    <Compile Include="CamereUnitati.cs">
+      <DependentUpon>Baza.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePasswordWindow.xaml.cs">
+      <DependentUpon>ChangePasswordWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NavButton.cs" />
+    <Compile Include="Hotel.xaml.cs">
+      <DependentUpon>Hotel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
     </Compile>
@@ -117,13 +122,19 @@
     <Compile Include="Pages\Page5.xaml.cs">
       <DependentUpon>Page5.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PretCamera.cs">
+    <Compile Include="RecenziiUnitati.cs">
       <DependentUpon>Baza.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rezervare.xaml.cs">
+      <DependentUpon>Rezervare.xaml</DependentUpon>
     </Compile>
     <Compile Include="Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
     <Compile Include="Rezervari.cs">
+      <DependentUpon>Baza.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RezervariUsers.cs">
       <DependentUpon>Baza.tt</DependentUpon>
     </Compile>
     <Compile Include="TipCamera.cs">
@@ -138,6 +149,10 @@
     <Compile Include="Users.cs">
       <DependentUpon>Baza.tt</DependentUpon>
     </Compile>
+    <Page Include="ChangePasswordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -158,6 +173,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Hotel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Page1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -175,6 +194,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Page5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Rezervare.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -209,7 +232,6 @@
     <EmbeddedResource Include="Migrations\202212191728219_First.resx">
       <DependentUpon>202212191728219_First.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -237,17 +259,13 @@
     <Resource Include="Images\2.jpeg" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Users\1.jpg" />
+    <Resource Include="Images\Hotel\Intercontinental\1.jpeg" />
+    <Resource Include="Images\Hotel\Intercontinental\3.jpeg" />
+    <Resource Include="Images\Hotel\Intercontinental\2.jpeg" />
+    <Resource Include="Images\GlyphClose.png" />
+    <Resource Include="Images\GlyphCheck_small.png" />
     <Resource Include="Images\1.jpg" />
-    <Content Include="Baza.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Baza.edmx</DependentUpon>
-      <LastGenOutput>Baza.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Baza.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Baza.edmx</DependentUpon>
-      <LastGenOutput>Baza.cs</LastGenOutput>
-    </Content>
     <Resource Include="Images\single_user_blue.png" />
     <Resource Include="Images\shutdown_def.png" />
     <Resource Include="Images\logo.ico" />
@@ -260,6 +278,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Classes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Baza.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Baza.edmx</DependentUpon>
+      <LastGenOutput>Baza.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Baza.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Baza.edmx</DependentUpon>
+      <LastGenOutput>Baza.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

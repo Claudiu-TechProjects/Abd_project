@@ -22,16 +22,13 @@ namespace ABD_Project
     /// Interaction logic for Login.xaml
     /// </summary>
     /// </summary>
-    
+
     public partial class Login : Window
     {
-
         public Login()
         {
             InitializeComponent();
         }
-      
-       BookingEntities context=new BookingEntities();   
         private void btn_Login(object sender, RoutedEventArgs e)
         {
             string username = UsernameTextBox.Text;
@@ -40,32 +37,34 @@ namespace ABD_Project
             try
             {
                 ValidateCredentials(username, password);
-               
+
                 MainWindow m = new MainWindow();
                 m.Show();
                 this.Close();
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                MessageBox.Show(ex.Message);
             };
         }
 
         private void btn_Register(object sender, RoutedEventArgs e)
         {
-            Register register=new Register();
+            Register register = new Register();
             register.Show();
             this.Close();
         }
 
         private void ValidateCredentials(string username, string password)
-        {
-            var user = (from c in context.Users where c.Username == username && c.Parola == password select c).FirstOrDefault();
+        { using (var context = new BookingEntities())
+            {
+                var user = (from c in context.Users where c.Username == username && c.Parola == password select c).FirstOrDefault();
 
-            if (user == null)
-                throw new Exception("Utilizator sau parola gresite!");
+                if (user == null)
+                    throw new Exception("Utilizator sau parola gresite!");
 
-            CurrentUser.user=user;
+                CurrentUser.user = user;
+            }
         }
 
         private void Shutdown(object sender, RoutedEventArgs e)

@@ -19,12 +19,11 @@ namespace ABD_Project
     /// Interaction logic for Register.xaml
     /// </summary>
     public partial class Register : Window
-    {
-        BookingEntities context; 
 
+    { 
         public Register()
         {
-            context = new BookingEntities();
+           
             InitializeComponent();
         }
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -54,7 +53,7 @@ namespace ABD_Project
         }
 
         private void RegisterUser(string username, string password, string email,string telefon ,string nume, string prenume)
-        {
+        { using (var context= new BookingEntities()) { 
             var aux= (from c in context.Users where c.Username == username select c).FirstOrDefault();
             if (aux != null)
             {
@@ -76,8 +75,9 @@ namespace ABD_Project
             if(context.SaveChanges()!=1)
             {
                throw new Exception("Inregistrare esuata! Try again!");
+         
             }
-        }
+       } }
         private void Shutdown(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();

@@ -14,6 +14,10 @@ using System.Windows.Shapes;
 
 namespace ABD_Project
 {
+    static public class Booking
+    {
+        public static BookingEntities context = new BookingEntities();
+    }
     static public class CurrentUser
     {
         public static Users user { get; set; }
@@ -24,14 +28,14 @@ namespace ABD_Project
         {
             InitializeComponent();
         }
-      
+
 
         private void Profil(object sender, RoutedEventArgs e)
         {
             Login login = new Login();
             login.Show();
             this.Close();
-            
+
         }
 
         private void Shutdown(object sender, RoutedEventArgs e)

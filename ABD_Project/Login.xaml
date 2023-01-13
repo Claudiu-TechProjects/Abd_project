@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ABD_Project"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" x:Class="ABD_Project.Login"
         mc:Ignorable="d"
-        Title="Login" Height="661" Width="400" Background="#FF00367F"
+        Title="Login" Height="661" Width="400" Background="#FF00367F"  ResizeMode="NoResize"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None">
 
@@ -22,7 +22,7 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Image Source="/Images/2.jpeg" HorizontalAlignment="Center" Margin="0,-5,0,464" Width="306" Stretch="Uniform"/>
+        <Image Source="/Images/2.jpeg" HorizontalAlignment="Center" Margin="0,0,0,464" Width="306" Stretch="Uniform"/>
 
 
         <StackPanel Margin="84,194,88,338" RenderTransformOrigin="0.951,0.435" HorizontalAlignment="Center">

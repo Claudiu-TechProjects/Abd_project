@@ -5,19 +5,21 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ABD_Project.Pages"
              mc:Ignorable="d" d:DesignWidth="800"
-             Background="White" d:DesignHeight="450">
-    <Grid>
-        <Border VerticalAlignment="Top" Height="40" Background="#FF00367F">
-        </Border>
-        <TextBlock Text="Poza de profil" Foreground="Black" Margin="152,92,574,340"/>
-        <Label x:Name="labelPoza" Margin="252,47,254,278" />
+              d:DesignHeight="815"  Background="#FF00367F" >
+    <Grid >
 
-        <StackPanel Height="210" Width="500" Margin="2,144,-2,96">
-            <Grid Height="207">
+        <TextBlock Text="Profil" Foreground="White" Height="30" FontSize="20" Width="50" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="150,139,0,0"/>
+        <Grid Width="300" Height="280" Background="white" Margin="250,28,250,487">
+            <Button Content="Click to upload" Click="btn_Upload" Name="upload_poza"/>
+            <Image Source="{Binding poza}" Name="PozaProfil" Stretch="Fill" ></Image>
+        </Grid>
+
+        <StackPanel Height="200" Width="500" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="150,323,150,282" >
+            <Grid Height="200" Width="500" HorizontalAlignment="Center" VerticalAlignment="Center"  >
                 <Grid.ColumnDefinitions>
 
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="6*" />
+                    <ColumnDefinition Width="103*" />
+                    <ColumnDefinition Width="397*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*" />
@@ -30,32 +32,27 @@
 
                 </Grid.RowDefinitions>
 
-                <TextBlock Text="Username:" Foreground="Black"  Grid.Column="0" Grid.Row="0"/>
-                <Label  x:Name="labelUser"  Content=""  Grid.Column="1" Grid.Row="0"/>
+                <TextBlock Text="Username:" Foreground="white" HorizontalAlignment="Center" VerticalAlignment="Center" Width="102" Height="30" FontSize="20"/>
+                <Label  x:Name="labelUser"  Content=""  Foreground="white"  Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top"  FontSize="20"/>
 
-                <TextBlock Text="Nume:" Foreground="Black"  Grid.Column="0" Grid.Row="1"  />
-                <Label  x:Name="labelnume" Content=""  Grid.Column="1" Grid.Row="1"/>
+                <TextBlock Text="Nume:" Foreground="white" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Height="30" Width="101"  FontSize="20" />
+                <Label  x:Name="labelnume" Content="" Foreground="white"  Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="top"  FontSize="20"/>
 
-                <TextBlock Text="Prenume:" Foreground="Black" Grid.Column="0" Grid.Row="2"  />
-                <Label  x:Name="labelPrenume" Content=""  Grid.Column="1" Grid.Row="2"/>
+                <TextBlock Text="Prenume:" Foreground="white" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Height="29" Width="102" FontSize="20" />
+                <Label  x:Name="labelPrenume" Content=""   Foreground="white" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top"   FontSize="20"/>
 
-                <TextBlock Text="Email:" Foreground="Black"    Grid.Column="0" Grid.Row="3" />
-                <Label  x:Name="labelEmail" Content="" Grid.Column="1" Grid.Row="3" />
+                <TextBlock Text="Email:" Foreground="white" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Height="30" Width="102" FontSize="20" />
+                <Label  x:Name="labelEmail" Content=""  Foreground="white" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="top"  FontSize="20"/>
 
-                <TextBlock Text="Telefon:" Foreground="Black"  Grid.Column="0" Grid.Row="4" />
-                <Label  x:Name="labelTelefon" Content=""  Grid.Column="1" Grid.Row="4 "/>
+                <TextBlock Text="Telefon:" Foreground="white"  HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" Height="30" Width="102"  FontSize="20"  />
+                <Label  x:Name="labelTelefon" Content=""  Foreground="white" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Top"  FontSize="20"/>
             </Grid>
-
         </StackPanel>
-        
-
-        <Button x:Name="btnDisconnect" Click="Button_Click" IsDefault="True" Content="Disconnect"   Width="151" Visibility="Visible" Background="White" BorderBrush="#FF00367F" Foreground="#FF00367F" Height="31" FontSize="20" Margin="320,408,330,10"/>
 
 
-
-
-
-
+        <Button x:Name="btnDisconnect" Click="Button_Click" IsDefault="True" Content="Disconnect"   Width="151" Visibility="Visible" Background="#FF00367F" BorderBrush="Black" Foreground="white" Height="31"  FontSize="20" Margin="132,618,517,165"/>
+        <Button x:Name="btnChPassword" Click="ChPassword_Click" IsDefault="False" Content="Change Password" Visibility="Visible" Background="#FF00367F" BorderBrush="Black" Foreground="white" Height="31"   Width="180"  FontSize="20" Margin="517,618,103,165"/>
+        <Button x:Name="btnChPoza" Click="ChPoza_Click" IsDefault="False" Content="Change Photo" Visibility="Visible" Background="#FF00367F" BorderBrush="Black" Foreground="white" Height="31"   Width="180"  FontSize="20" Margin="577,139,43,645"/>
 
     </Grid>
 </UserControl>

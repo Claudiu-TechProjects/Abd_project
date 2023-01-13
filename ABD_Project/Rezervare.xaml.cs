@@ -10,26 +10,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ABD_Project.Pages
 {
-    public partial class Page5 : Page
+    /// <summary>
+    /// Interaction logic for Rezervare.xaml
+    /// </summary>
+    public partial class Rezervare : Window
     {
-        public Page5()
+        public Rezervare()
         {
             InitializeComponent();
-        }
-
-        private void btn_trimite(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btn_descarcare(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

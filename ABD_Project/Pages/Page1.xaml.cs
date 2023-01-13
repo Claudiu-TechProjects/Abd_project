@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace ABD_Project.Pages
 {
-    /// <summary>
-    /// Interaction logic for Page1.xaml
-    /// </summary>
     public partial class Page1 : UserControl
     {
         public Page1()
