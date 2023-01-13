@@ -30,9 +30,13 @@
 
 
 
-        <DataGrid Name="DataGridHoteluri" Margin="47,328,51,68" RenderTransformOrigin="0.5,0.5" HorizontalScrollBarVisibility="Auto" AutoGenerateColumns="False" MouseDoubleClick="Acces_Hotel" >
-               
-            
+        <DataGrid Name="DataGridHoteluri" Margin="47,328,51,68" RenderTransformOrigin="0.5,0.5" HorizontalScrollBarVisibility="Auto" AutoGenerateColumns="False"  >
+
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="Acces_Hotel"/>
+                </Style>
+            </DataGrid.Resources>
             <DataGrid.Columns>
                     
                     <DataGridTextColumn Header="Nume" Width="160" Binding="{Binding Nume }" IsReadOnly="True" ></DataGridTextColumn>

@@ -16,7 +16,13 @@
 
         </Grid>
 
-        <DataGrid HorizontalAlignment="Center" VerticalAlignment="Center" AutoGenerateColumns="False" Width="600" Height="400" MouseDoubleClick="Acces_Rezervare" >
+        <DataGrid HorizontalAlignment="Center" VerticalAlignment="Center" AutoGenerateColumns="False" Width="600" Height="400"  >
+
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="Acces_Rezervare"/>
+                </Style>
+            </DataGrid.Resources>
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Numar" Binding="{Binding Numar}" Width="50" IsReadOnly="True"></DataGridTextColumn>
                 <DataGridTextColumn Header="Rezervare" Binding="{Binding Rezervare}" Width="80" IsReadOnly="True"></DataGridTextColumn>

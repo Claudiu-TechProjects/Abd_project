@@ -119,11 +119,8 @@
     <Compile Include="Pages\Page5.xaml.cs">
       <DependentUpon>Page5.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Rezervare.xaml.cs">
+    <Compile Include="Rezervare.xaml.cs">
       <DependentUpon>Rezervare.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Startup.xaml.cs">
-      <DependentUpon>Startup.xaml</DependentUpon>
     </Compile>
     <Compile Include="PretCamera.cs">
       <DependentUpon>Baza.tt</DependentUpon>
@@ -194,11 +191,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\Rezervare.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Pages\Startup.xaml">
+    <Page Include="Rezervare.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
