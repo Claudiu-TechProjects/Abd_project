@@ -32,11 +32,15 @@ namespace ABD_Project.Pages
             labelPrenume.Content = CurrentUser.user.Prenume;
             labelTelefon.Content = CurrentUser.user.Telefon;
             labelEmail.Content = CurrentUser.user.Email;
-            
-            //to do 
 
-            // verificare daca are poza de profil(daca o are o afiseaza )
-        }
+          
+            if (CurrentUser.user.Imagine != null)
+            {
+                BitmapImage img = new BitmapImage(new Uri(CurrentUser.user.Imagine, UriKind.Absolute));
+                PozaProfil.Source = img;
+            }
+        
+         }
 
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -54,14 +58,22 @@ namespace ABD_Project.Pages
         }
         private void btn_Upload(object sender, RoutedEventArgs e)
         {
+            BitmapImage ProfileImg;
             OpenFileDialog openDialog = new OpenFileDialog();
-            openDialog.Filter = "Image files|*.bmp;*.jpg;*.png";
+            openDialog.Filter = "Image files|.bmp;.jpg;*.png";
             openDialog.FilterIndex = 1;
-            if(openDialog.ShowDialog() == true)
+            if (openDialog.ShowDialog() == true)
             {
-                PozaProfil.Source = new BitmapImage(new Uri(openDialog.FileName));
-            }    
+                ProfileImg = new BitmapImage(new Uri(openDialog.FileName));
+                PozaProfil.Source = ProfileImg;
 
+                using (var context = new BookingEntities())
+                {
+                    var user = context.Users.Where(u => u.Username == CurrentUser.user.Username).ToList();
+                    user.ForEach(u => u.Imagine = ProfileImg.ToString());
+                    context.SaveChanges();
+                }
+            }
         }
 
         private void ChPoza_Click(object sender, RoutedEventArgs e)
