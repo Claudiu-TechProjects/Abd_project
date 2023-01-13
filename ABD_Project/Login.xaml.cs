@@ -44,7 +44,7 @@ namespace ABD_Project
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                MessageBox.Show(ex.Message);
             };
         }
 
@@ -56,13 +56,15 @@ namespace ABD_Project
         }
 
         private void ValidateCredentials(string username, string password)
-        {
-            var user = (from c in Booking.context.Users where c.Username == username && c.Parola == password select c).FirstOrDefault();
+        { using (var context = new BookingEntities())
+            {
+                var user = (from c in context.Users where c.Username == username && c.Parola == password select c).FirstOrDefault();
 
-            if (user == null)
-                throw new Exception("Utilizator sau parola gresite!");
+                if (user == null)
+                    throw new Exception("Utilizator sau parola gresite!");
 
-            CurrentUser.user = user;
+                CurrentUser.user = user;
+            }
         }
 
         private void Shutdown(object sender, RoutedEventArgs e)

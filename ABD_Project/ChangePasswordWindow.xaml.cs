@@ -51,11 +51,11 @@ namespace ABD_Project
                 return;
             }
 
-            using (Booking.context)
+            using (var context = new BookingEntities())
             {
-                var user = Booking.context.Users.Where(u => u.Username == CurrentUser.user.Username && u.Parola == oldPassword).ToList();
+                var user = context.Users.Where(u => u.Username == CurrentUser.user.Username && u.Parola == oldPassword).ToList();
                 user.ForEach(u => u.Parola = newPassword);
-                Booking.context.SaveChanges();
+                context.SaveChanges();
             }
 
             MessageBox.Show("Password changed successfully!");

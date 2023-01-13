@@ -94,7 +94,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Baza.edmx</DependentUpon>
     </Compile>
-    <Compile Include="CamereDisp.cs">
+    <Compile Include="CamereOcupate.cs">
+      <DependentUpon>Baza.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CamereUnitati.cs">
       <DependentUpon>Baza.tt</DependentUpon>
     </Compile>
     <Compile Include="ChangePasswordWindow.xaml.cs">
@@ -119,16 +122,19 @@
     <Compile Include="Pages\Page5.xaml.cs">
       <DependentUpon>Page5.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RecenziiUnitati.cs">
+      <DependentUpon>Baza.tt</DependentUpon>
+    </Compile>
     <Compile Include="Rezervare.xaml.cs">
       <DependentUpon>Rezervare.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="PretCamera.cs">
-      <DependentUpon>Baza.tt</DependentUpon>
     </Compile>
     <Compile Include="Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
     <Compile Include="Rezervari.cs">
+      <DependentUpon>Baza.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RezervariUsers.cs">
       <DependentUpon>Baza.tt</DependentUpon>
     </Compile>
     <Compile Include="TipCamera.cs">
@@ -260,16 +266,6 @@
     <Resource Include="Images\GlyphClose.png" />
     <Resource Include="Images\GlyphCheck_small.png" />
     <Resource Include="Images\1.jpg" />
-    <Content Include="Baza.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Baza.edmx</DependentUpon>
-      <LastGenOutput>Baza.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Baza.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Baza.edmx</DependentUpon>
-      <LastGenOutput>Baza.cs</LastGenOutput>
-    </Content>
     <Resource Include="Images\single_user_blue.png" />
     <Resource Include="Images\shutdown_def.png" />
     <Resource Include="Images\logo.ico" />
@@ -282,6 +278,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Classes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Baza.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Baza.edmx</DependentUpon>
+      <LastGenOutput>Baza.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Baza.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Baza.edmx</DependentUpon>
+      <LastGenOutput>Baza.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

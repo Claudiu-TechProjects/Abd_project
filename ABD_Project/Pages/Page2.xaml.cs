@@ -38,7 +38,7 @@ namespace ABD_Project.Pages
             // verificare daca are poza de profil(daca o are o afiseaza )
         }
 
-        //Users user = Application.Current.Windows[0];
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Login loging = new Login();
@@ -66,6 +66,7 @@ namespace ABD_Project.Pages
 
         private void ChPoza_Click(object sender, RoutedEventArgs e)
         {
+
 
         }
     }
