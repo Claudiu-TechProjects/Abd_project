@@ -63,5 +63,10 @@ namespace ABD_Project.Pages
             }    
 
         }
+
+        private void ChPoza_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
