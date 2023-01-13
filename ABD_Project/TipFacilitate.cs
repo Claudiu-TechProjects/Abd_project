@@ -18,6 +18,7 @@ namespace ABD_Project
         public TipFacilitate()
         {
             this.Unitati = new HashSet<Unitati>();
+            this.Rezervari = new HashSet<Rezervari>();
         }
     
         public int IDTipFacilitate { get; set; }
@@ -26,5 +27,7 @@ namespace ABD_Project
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Unitati> Unitati { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Rezervari> Rezervari { get; set; }
     }
 }

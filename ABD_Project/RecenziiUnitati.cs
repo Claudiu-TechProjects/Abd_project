@@ -12,13 +12,14 @@ namespace ABD_Project
     using System;
     using System.Collections.Generic;
     
-    public partial class PretCamera
+    public partial class RecenziiUnitati
     {
         public int IDUnitate { get; set; }
-        public int IDTipCamera { get; set; }
-        public int Pret { get; set; }
+        public int IDUser { get; set; }
+        public string Continut { get; set; }
+        public Nullable<int> Rate { get; set; }
     
-        public virtual TipCamera TipCamera { get; set; }
         public virtual Unitati Unitati { get; set; }
+        public virtual Users Users { get; set; }
     }
 }

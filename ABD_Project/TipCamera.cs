@@ -17,19 +17,19 @@ namespace ABD_Project
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TipCamera()
         {
-            this.CamereDisp = new HashSet<CamereDisp>();
-            this.PretCamera = new HashSet<PretCamera>();
             this.Rezervari = new HashSet<Rezervari>();
+            this.CamereOcupate = new HashSet<CamereOcupate>();
+            this.CamereUnitati = new HashSet<CamereUnitati>();
         }
     
         public int IDTipCamera { get; set; }
         public int NrLocuri { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CamereDisp> CamereDisp { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PretCamera> PretCamera { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rezervari> Rezervari { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CamereOcupate> CamereOcupate { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CamereUnitati> CamereUnitati { get; set; }
     }
 }

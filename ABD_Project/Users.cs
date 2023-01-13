@@ -14,6 +14,13 @@ namespace ABD_Project
     
     public partial class Users
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Users()
+        {
+            this.RecenziiUnitati = new HashSet<RecenziiUnitati>();
+            this.RezervariUsers = new HashSet<RezervariUsers>();
+        }
+    
         public int IDUser { get; set; }
         public string Nume { get; set; }
         public string Prenume { get; set; }
@@ -22,5 +29,11 @@ namespace ABD_Project
         public string Adresa { get; set; }
         public string Email { get; set; }
         public string Telefon { get; set; }
+        public string Imagine { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RecenziiUnitati> RecenziiUnitati { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RezervariUsers> RezervariUsers { get; set; }
     }
 }

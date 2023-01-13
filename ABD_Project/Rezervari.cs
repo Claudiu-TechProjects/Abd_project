@@ -14,12 +14,23 @@ namespace ABD_Project
     
     public partial class Rezervari
     {
-        public int IDUnitate { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Rezervari()
+        {
+            this.RezervariUsers = new HashSet<RezervariUsers>();
+            this.TipFacilitate = new HashSet<TipFacilitate>();
+        }
+    
+        public int IDRezervare { get; set; }
         public int IDTipCamera { get; set; }
         public System.DateTime StartDate { get; set; }
         public System.DateTime EndDate { get; set; }
+        public Nullable<decimal> PretTotal { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RezervariUsers> RezervariUsers { get; set; }
         public virtual TipCamera TipCamera { get; set; }
-        public virtual Unitati Unitati { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TipFacilitate> TipFacilitate { get; set; }
     }
 }
