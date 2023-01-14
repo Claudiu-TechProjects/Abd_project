@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
 
 namespace ABD_Project.Pages
 {
@@ -28,7 +29,7 @@ namespace ABD_Project.Pages
             Orase.ItemsSource = orase;
 
             var cam = (from c in Booking.context.TipCamera select c.NrLocuri).ToList();
-            Camere.ItemsSource = cam;
+          //  Camere.ItemsSource = cam;
         }
 
         private void ComboBox_SelectionChangedOrase(object sender, SelectionChangedEventArgs e)
@@ -38,11 +39,17 @@ namespace ABD_Project.Pages
 
         private void ComboBox_SelectionChangedCamere(object sender, SelectionChangedEventArgs e)
         {
-            this.TipCameraSelectat = (int)Camere.SelectedItem;
+           // this.TipCameraSelectat = (int)Camere.SelectedItem;
         }
 
         private void btn_Cauta_Click(object sender, RoutedEventArgs e)
         {
+            if (!int.TryParse(Invitati.Text, out int valueInvitati))
+            {
+                _ = MessageBox.Show("Numarul de invitati trebuie sa fie intreg");
+                return;
+            }
+            
             if (Inceput.SelectedDate == null)
             {
                 //afiseaza mesaj eroare
@@ -52,6 +59,7 @@ namespace ABD_Project.Pages
 
             if (Sfarsit.SelectedDate == null)
             {
+                
                 //afiseaza mesaj eroare 
                 _ = MessageBox.Show("Nu ati selectat o data de sfarsit!");
                 return;
@@ -80,7 +88,7 @@ namespace ABD_Project.Pages
                               
                           };
 
-
+            
             
             
             DataGridHoteluri.ItemsSource = unitati.ToList();
@@ -90,10 +98,18 @@ namespace ABD_Project.Pages
 
         private void Acces_Hotel(object sender, MouseButtonEventArgs e)
         {
-            Hotel doubleclick = new Hotel();
-            doubleclick.ShowDialog();
-            
 
+            //DataGrid dg = sender as DataGrid;
+            //DataGridRow dr = dg.SelectedItem as DataGridRow;
+            var nume = DataGridHoteluri.SelectedItem.ToString().Split(' ');
+
+            var hotel = nume[3].Substring(0, nume[3].Length-1);
+            int.TryParse(Invitati.Text, out int valueInvitati);
+            Window inregistrare = new Hotel(hotel,Inceput.SelectedDate.Value,Sfarsit.SelectedDate.Value,valueInvitati);
+            inregistrare.ShowDialog();
+
+
+            
         }
     }
 }

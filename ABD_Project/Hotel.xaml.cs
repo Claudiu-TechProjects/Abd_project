@@ -20,14 +20,35 @@ namespace ABD_Project.Pages
     public partial class Hotel : Window
     {
          int photoIndex=1;
-        public Hotel()
+        string numeHotel;
+        DateTime data_inceput;
+        DateTime data_sfarsit;
+        int invitati;
+        public Hotel(string nume, DateTime data_i,DateTime data_s, int inv)
         {
+           
             InitializeComponent();
+             numeHotel = nume;
+            data_inceput = data_i;
+             data_sfarsit = data_s;
+           invitati = inv;
+            Poza.Source = new BitmapImage(new Uri(@"Images/Hotel/" + numeHotel + "/" + photoIndex + ".jpeg", UriKind.Relative));
+
+            using(var context=new BookingEntities())
+            {
+
+
+
+
+            }
+
         }
 
 
         private void btn_like(object sender, RoutedEventArgs e)
         {
+
+
 
         }
         private void btn_dislike(object sender, RoutedEventArgs e)
@@ -47,7 +68,7 @@ namespace ABD_Project.Pages
             {
                 photoIndex = 1;
             }
-            Poza.Source = new BitmapImage(new Uri(@"Images/Hotel/Intercontinental/" + photoIndex + ".jpeg", UriKind.Relative));
+            Poza.Source = new BitmapImage(new Uri(@"Images/Hotel/" + numeHotel +"/" + photoIndex + ".jpeg", UriKind.Relative));
         }
 
         private void btn_Back_Photo(object sender, RoutedEventArgs e)
@@ -57,7 +78,7 @@ namespace ABD_Project.Pages
             {
                 photoIndex = 3 ;
             }
-            Poza.Source = new BitmapImage(new Uri(@"Images/Hotel/Intercontinental/" + photoIndex + ".jpeg", UriKind.Relative));
+            Poza.Source = new BitmapImage(new Uri(@"Images/Hotel" + numeHotel +" / " + photoIndex + ".jpeg", UriKind.Relative));
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

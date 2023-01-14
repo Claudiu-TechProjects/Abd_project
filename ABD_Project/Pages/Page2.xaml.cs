@@ -60,12 +60,13 @@ namespace ABD_Project.Pages
         {
             BitmapImage ProfileImg;
             OpenFileDialog openDialog = new OpenFileDialog();
-            openDialog.Filter = "Image files|.bmp;.jpg;*.png";
+            openDialog.Filter = "Image files|*.bmp;*.jpeg;*.jpg;*.png";
             openDialog.FilterIndex = 1;
             if (openDialog.ShowDialog() == true)
             {
                 ProfileImg = new BitmapImage(new Uri(openDialog.FileName));
                 PozaProfil.Source = ProfileImg;
+                CurrentUser.user.Imagine=ProfileImg.ToString();
 
                 using (var context = new BookingEntities())
                 {
@@ -78,7 +79,24 @@ namespace ABD_Project.Pages
 
         private void ChPoza_Click(object sender, RoutedEventArgs e)
         {
+            BitmapImage ProfileImg;
+            OpenFileDialog openDialog = new OpenFileDialog();
+            openDialog.Filter = "Image files|*.bmp;*.jpeg;*.jpg;*.png";
+            openDialog.FilterIndex = 1;
+            if (openDialog.ShowDialog() == true)
+            {
+                ProfileImg = new BitmapImage(new Uri(openDialog.FileName));
+                PozaProfil.Source = ProfileImg;
+                CurrentUser.user.Imagine = ProfileImg.ToString();
 
+                using (var context = new BookingEntities())
+                {
+                    var user = context.Users.Where(u => u.Username == CurrentUser.user.Username).ToList();
+                    user.ForEach(u => u.Imagine = ProfileImg.ToString());
+                    context.SaveChanges();
+                   
+                }
+            }
 
         }
     }

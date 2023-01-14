@@ -11,18 +11,19 @@
       Background="#FF00367F">
 
     <Grid>
-        <TextBlock Text="Orașe"  Foreground="White" Margin="10,94,739,684" />
-        <TextBlock Text="Tipul Camerei" Foreground="White" Margin="362,94,561,684"></TextBlock>
+        <TextBlock Text="Orașe"  Foreground="White" Margin="10,94,952,684" />
+        <TextBlock Text="Numarul de invitati" Foreground="White" Margin="362,94,535,684"></TextBlock>
+        <TextBox x:Name="Invitati" Width="50" Height=" 20" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="Black" Background="#FF00367F" Foreground="White" Margin="500,96,0,0"></TextBox>
         <TextBlock Text="Hoteluri disponibile:"  FontSize="30" Foreground="White" Margin="371,257,361,505" />
         <TextBlock Text="Inregistrează o rezervare!" FontSize="30"  Foreground="White" Margin="338,10,330,751" />
         <TextBlock Text="Din data de:"  Foreground="White" Margin="10,184,914,594" />
         <TextBlock Text="pana la:" Foreground="White" Margin="362,184,591,594"></TextBlock>
 
         <DatePicker x:Name="Sfarsit" HorizontalAlignment="Left" Margin="489,184,0,0" VerticalAlignment="Top" Height="22" Width="140" />
-        <DatePicker x:Name="Inceput" HorizontalAlignment="Left" Margin="114,184,0,0" VerticalAlignment="Top" Height="22" Width="145" IsManipulationEnabled="False"/>
+        <DatePicker x:Name="Inceput" HorizontalAlignment="Left" Margin="114,184,0,0" VerticalAlignment="Top" Height="22" Width="145" IsManipulationEnabled="False" Background="#FF00367F" />
 
-        <ComboBox x:Name="Orase" HorizontalAlignment="Left" Margin="114,93,0,0" VerticalAlignment="Top" Width="145" ItemsSource="{Binding OraseList}" SelectedItem="{Binding SelectedOras}" SelectionChanged="ComboBox_SelectionChangedOrase"/>
-        <ComboBox x:Name="Camere" HorizontalAlignment="Left" Margin="489,93,0,0" VerticalAlignment="Top" Width="140" SelectionChanged="ComboBox_SelectionChangedCamere"/>
+        <ComboBox x:Name="Orase" HorizontalAlignment="Left" Margin="114,93,0,0" VerticalAlignment="Top" Width="145" ItemsSource="{Binding OraseList}" SelectedItem="{Binding SelectedOras}" SelectionChanged="ComboBox_SelectionChangedOrase" Background="#FF00367F"/>
+        <!--<ComboBox x:Name="Camere" HorizontalAlignment="Left" Margin="489,93,0,0" VerticalAlignment="Top" Width="140" SelectionChanged="ComboBox_SelectionChangedCamere"/>-->
 
 
 
@@ -38,15 +39,15 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                    
-                    <DataGridTextColumn Header="Nume" Width="160" Binding="{Binding Nume }" IsReadOnly="True" ></DataGridTextColumn>
+
+                <DataGridTextColumn Header="Nume" Width="160" Binding="{Binding Nume }" IsReadOnly="True" ></DataGridTextColumn>
                 <DataGridTextColumn Header="Oras" Width="160" Binding="{Binding Oras }" IsReadOnly="True" ></DataGridTextColumn>
                 <DataGridTextColumn  Header="Judet" Width="160" Binding="{Binding Judet }" IsReadOnly="True" ></DataGridTextColumn>
                 <DataGridTextColumn  Header="Adresa"  Width="200" Binding="{Binding Adresa }" IsReadOnly="True" ></DataGridTextColumn>
                 <DataGridTextColumn  Header="Stele" Width="50" Binding="{Binding Stele }" IsReadOnly="True" ></DataGridTextColumn>
-                
+
             </DataGrid.Columns>
-          
+
 
         </DataGrid>
 
