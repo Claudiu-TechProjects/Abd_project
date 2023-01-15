@@ -11,9 +11,9 @@
       Background="#FF00367F">
 
     <Grid>
-        <TextBlock Text="Orașe"  Foreground="White" Margin="10,94,952,684" />
-        <TextBlock Text="Numarul de invitati" Foreground="White" Margin="362,94,535,684"></TextBlock>
-        <TextBox x:Name="Invitati" Width="50" Height=" 20" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="Black" Background="#FF00367F" Foreground="White" Margin="500,96,0,0"></TextBox>
+        <TextBlock Text="Orașe"  Foreground="White" Margin="221,100,741,678" />
+        <!--<TextBlock Text="Numarul de invitati" Foreground="White" Margin="362,94,535,684"></TextBlock>-->
+        <!--<TextBox x:Name="Invitati" Width="50" Height=" 20" HorizontalAlignment="Left" VerticalAlignment="Top"  BorderBrush="Black" Background="#FF00367F" Foreground="White" Margin="500,96,0,0"></TextBox>-->
         <TextBlock Text="Hoteluri disponibile:"  FontSize="30" Foreground="White" Margin="371,257,361,505" />
         <TextBlock Text="Inregistrează o rezervare!" FontSize="30"  Foreground="White" Margin="338,10,330,751" />
         <TextBlock Text="Din data de:"  Foreground="White" Margin="10,184,914,594" />
@@ -22,7 +22,7 @@
         <DatePicker x:Name="Sfarsit" HorizontalAlignment="Left" Margin="489,184,0,0" VerticalAlignment="Top" Height="22" Width="140" />
         <DatePicker x:Name="Inceput" HorizontalAlignment="Left" Margin="114,184,0,0" VerticalAlignment="Top" Height="22" Width="145" IsManipulationEnabled="False" Background="#FF00367F" />
 
-        <ComboBox x:Name="Orase" HorizontalAlignment="Left" Margin="114,93,0,0" VerticalAlignment="Top" Width="145" ItemsSource="{Binding OraseList}" SelectedItem="{Binding SelectedOras}" SelectionChanged="ComboBox_SelectionChangedOrase" Background="#FF00367F"/>
+        <ComboBox x:Name="Orase" HorizontalAlignment="Left" Margin="313,100,0,0" VerticalAlignment="Top" Width="145" ItemsSource="{Binding OraseList}" SelectedItem="{Binding SelectedOras}" SelectionChanged="ComboBox_SelectionChangedOrase" Background="#FF00367F"/>
         <!--<ComboBox x:Name="Camere" HorizontalAlignment="Left" Margin="489,93,0,0" VerticalAlignment="Top" Width="140" SelectionChanged="ComboBox_SelectionChangedCamere"/>-->
 
 

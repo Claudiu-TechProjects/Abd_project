@@ -19,9 +19,27 @@ namespace ABD_Project.Pages
     /// </summary>
     public partial class Rezervare : Window
     {
-        public Rezervare()
+        public Rezervare(int id,string status)
         {
             InitializeComponent();
+            
+            labelID.Content = id;
+            labelStatus.Content = status;
+            labelIDD.Content = id;
+
+
+        }
+
+        private void btn_descarcare(object sender, RoutedEventArgs e)
+        {
+
+
+
+        }
+
+        private void btn_trimite(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

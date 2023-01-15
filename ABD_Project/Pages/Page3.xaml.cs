@@ -28,8 +28,10 @@ namespace ABD_Project.Pages
 {
     public partial class Page3 : Page
     {
+
         private string OrasSelectat = null;
         private List<string> hotelName = new List<string>();
+
         public Page3()
         {
             InitializeComponent();
@@ -52,14 +54,16 @@ namespace ABD_Project.Pages
 
         private void btn_Cauta_Click(object sender, RoutedEventArgs e)
         {
-            if (!int.TryParse(Invitati.Text, out int valueInvitati))
-            {
-                _ = MessageBox.Show("Numarul de invitati trebuie sa fie intreg");
-                return;
-            }
 
-            if (Invitati.Text == "")
-                valueInvitati = 0;
+            //if (!int.TryParse(Invitati.Text, out int valueInvitati))
+            //{
+            //    _ = MessageBox.Show("Numarul de invitati trebuie sa fie intreg");
+            //    return;
+            //}
+
+
+            //if (Invitati.Text == "")
+            //    valueInvitati = 0;
 
             if (Inceput.SelectedDate == null)
             {
@@ -113,7 +117,7 @@ namespace ABD_Project.Pages
                             var result = query;
                         }*/
 
-            string connString = @"Data Source=DESKTOP-OCPUGRE;Initial Catalog=Booking;Integrated Security=True";
+            string connString = @"Data Source=DESKTOP-NQL6DA2;Initial Catalog=Booking;Integrated Security=True";
 
             using (SqlConnection connection = new SqlConnection(connString))
             {
@@ -169,9 +173,9 @@ namespace ABD_Project.Pages
 
         private void Acces_Hotel(object sender, MouseButtonEventArgs e)
         {
-            int.TryParse(Invitati.Text, out int valueInvitati);
+            //int.TryParse(Invitati.Text, out int valueInvitati);
             var hotel = hotelName[DataGridHoteluri.SelectedIndex];
-            Window inregistrare = new Hotel(hotel, Inceput.SelectedDate.Value, Sfarsit.SelectedDate.Value, valueInvitati);
+            Window inregistrare = new Hotel(hotel, Inceput.SelectedDate.Value, Sfarsit.SelectedDate.Value);
             inregistrare.ShowDialog();
         }
     }

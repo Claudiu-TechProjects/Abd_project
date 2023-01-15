@@ -26,15 +26,19 @@ namespace ABD_Project.Pages
         string numeHotel;
         DateTime data_inceput;
         DateTime data_sfarsit;
-        int invitati;
-        public Hotel(string nume, DateTime data_i,DateTime data_s, int inv)
+        
+        public Hotel(string nume, DateTime data_i,DateTime data_s)
         {
            
             InitializeComponent();
             numeHotel = nume;
             data_inceput = data_i;
+
             data_sfarsit = data_s;
-            invitati = inv;
+            //invitati = inv;
+
+             data_sfarsit = data_s;
+
             Poza.Source = new BitmapImage(new Uri(@"Images/Hotel/" + numeHotel + "/" + photoIndex + ".jpeg", UriKind.Relative));
 
             using(var context = new BookingEntities())
