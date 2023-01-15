@@ -17,8 +17,8 @@ namespace ABD_Project
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TipFacilitate()
         {
-            this.Unitati = new HashSet<Unitati>();
-            this.Rezervari = new HashSet<Rezervari>();
+            this.FacilitatiDisponibile = new HashSet<FacilitatiDisponibile>();
+            this.FacilitatiRezervare = new HashSet<FacilitatiRezervare>();
         }
     
         public int IDTipFacilitate { get; set; }
@@ -26,8 +26,8 @@ namespace ABD_Project
         public int Pret { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Unitati> Unitati { get; set; }
+        public virtual ICollection<FacilitatiDisponibile> FacilitatiDisponibile { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Rezervari> Rezervari { get; set; }
+        public virtual ICollection<FacilitatiRezervare> FacilitatiRezervare { get; set; }
     }
 }

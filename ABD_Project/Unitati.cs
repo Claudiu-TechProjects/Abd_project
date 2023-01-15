@@ -17,11 +17,11 @@ namespace ABD_Project
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Unitati()
         {
+            this.FacilitatiDisponibile = new HashSet<FacilitatiDisponibile>();
             this.CamereOcupate = new HashSet<CamereOcupate>();
             this.CamereUnitati = new HashSet<CamereUnitati>();
             this.RecenziiUnitati = new HashSet<RecenziiUnitati>();
             this.RezervariUsers = new HashSet<RezervariUsers>();
-            this.TipFacilitate = new HashSet<TipFacilitate>();
         }
     
         public int IDUnitate { get; set; }
@@ -34,6 +34,8 @@ namespace ABD_Project
         public string Imagine { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FacilitatiDisponibile> FacilitatiDisponibile { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CamereOcupate> CamereOcupate { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CamereUnitati> CamereUnitati { get; set; }
@@ -41,7 +43,5 @@ namespace ABD_Project
         public virtual ICollection<RecenziiUnitati> RecenziiUnitati { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RezervariUsers> RezervariUsers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TipFacilitate> TipFacilitate { get; set; }
     }
 }

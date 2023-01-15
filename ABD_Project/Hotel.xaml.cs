@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.Entity;
+using System.Runtime.InteropServices;
 
 namespace ABD_Project.Pages
 {
@@ -28,22 +31,61 @@ namespace ABD_Project.Pages
         {
            
             InitializeComponent();
-             numeHotel = nume;
+            numeHotel = nume;
             data_inceput = data_i;
-             data_sfarsit = data_s;
-           invitati = inv;
+            data_sfarsit = data_s;
+            invitati = inv;
             Poza.Source = new BitmapImage(new Uri(@"Images/Hotel/" + numeHotel + "/" + photoIndex + ".jpeg", UriKind.Relative));
 
-            using(var context=new BookingEntities())
+            using(var context = new BookingEntities())
             {
+                var facilitati = (
+                    (from tf in context.TipFacilitate
+                     join fd in context.FacilitatiDisponibile on tf.IDTipFacilitate equals fd.IDTipFacilitate
+                     join unitati in context.Unitati on fd.IDUnitate equals unitati.IDUnitate
+                     where unitati.Nume == numeHotel
+                     select tf).ToList()
+                    );
 
+                //OK
+                //TO DO: pune facilitati in datagrid
+            }
 
+            using (var context = new BookingEntities())
+            {
+                var camere_ocupate = (from co in context.CamereOcupate
+                             join u in context.Unitati on co.IDUnitate equals u.IDUnitate
+                             join tc in context.TipCamera on co.IDTipCamera equals tc.IDTipCamera
+                             where u.Nume == nume
+                             && ((co.DataInceput >= data_i && co.DataSfarsit >= data_i)
+                                 || (co.DataInceput <= data_s && data_s <= co.DataSfarsit))
+                             group co by tc.IDTipCamera into g
+                             select new
+                             {
+                                 TipCamera = g.Key,
+                                 NumarCamereOcupate = g.Count()
+                             }).ToList();
 
+                var camere_disponibile = (from cu in context.CamereUnitati
+                                          join u in context.Unitati on cu.IDUnitate equals u.IDUnitate
+                                          where u.Nume == nume
+                                          select new
+                                          {
+                                                TipCamera = cu.IDTipCamera,
+                                                Disp = cu.NrDisp 
+                                          }).ToList();
 
+                var camere_disponibile_new = camere_disponibile.Select(x => new
+                {
+                    x.TipCamera,
+                    Disp = x.Disp - camere_ocupate.Where(y => y.TipCamera == x.TipCamera).Select(y => y.NumarCamereOcupate).FirstOrDefault()
+                }).ToList();
+
+                //OK
+                //TO DO: pune camere_disponibile_new in datagrid
             }
 
         }
-
 
         private void btn_like(object sender, RoutedEventArgs e)
         {

@@ -58,6 +58,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -102,6 +103,12 @@
     </Compile>
     <Compile Include="ChangePasswordWindow.xaml.cs">
       <DependentUpon>ChangePasswordWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FacilitatiDisponibile.cs">
+      <DependentUpon>Baza.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FacilitatiRezervare.cs">
+      <DependentUpon>Baza.tt</DependentUpon>
     </Compile>
     <Compile Include="NavButton.cs" />
     <Compile Include="Hotel.xaml.cs">

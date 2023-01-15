@@ -25,6 +25,8 @@ namespace ABD_Project
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<FacilitatiDisponibile> FacilitatiDisponibile { get; set; }
+        public virtual DbSet<FacilitatiRezervare> FacilitatiRezervare { get; set; }
         public virtual DbSet<Rezervari> Rezervari { get; set; }
         public virtual DbSet<TipCamera> TipCamera { get; set; }
         public virtual DbSet<TipFacilitate> TipFacilitate { get; set; }

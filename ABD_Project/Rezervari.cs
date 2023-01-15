@@ -17,8 +17,8 @@ namespace ABD_Project
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Rezervari()
         {
+            this.FacilitatiRezervare = new HashSet<FacilitatiRezervare>();
             this.RezervariUsers = new HashSet<RezervariUsers>();
-            this.TipFacilitate = new HashSet<TipFacilitate>();
         }
     
         public int IDRezervare { get; set; }
@@ -28,9 +28,9 @@ namespace ABD_Project
         public Nullable<decimal> PretTotal { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<FacilitatiRezervare> FacilitatiRezervare { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RezervariUsers> RezervariUsers { get; set; }
         public virtual TipCamera TipCamera { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TipFacilitate> TipFacilitate { get; set; }
     }
 }
