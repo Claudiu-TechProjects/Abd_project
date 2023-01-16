@@ -17,17 +17,17 @@
         <Button x:Name="descare_factura" Content="Descarcare factura " HorizontalAlignment="Left" VerticalAlignment="Top" Click="btn_descarcare" BorderBrush="Black" Foreground="White" Width="250" Height="100" FontSize="25" Background="#FF00367F" Margin="102,566,0,0" ></Button>
         <Button x:Name="trimte_factura" Content="Trimite factura pe mail" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btn_trimite" BorderBrush="Black" Foreground="White" Width="250" Height="100" FontSize="25" Background="#FF00367F" Margin="550,566,0,0"></Button>
 
-        <DataGrid Height="100" Width="300" Margin="550,422,50,232" >
+        <DataGrid Name="DataGridFacilitati" Height="100" Width="300" Margin="550,422,50,232" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Facilitati" Width="150" ></DataGridTextColumn>
-                <DataGridTextColumn Header="Pret" Width="150"></DataGridTextColumn>
+                <DataGridTextColumn Header="Facilitati" Binding="{Binding Facilitate}" Width="150" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Pret" Width="150" Binding="{Binding Pret}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
 
-        <DataGrid Height="100" Width="300" Margin="550,277,50,377"  >
+        <DataGrid Name="DataGridCamera" Height="100" Width="300" Margin="550,277,50,377"  >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Camera" Width="150" ></DataGridTextColumn>
-                <DataGridTextColumn Header="Locuri camera" Width="150"></DataGridTextColumn>
+                <DataGridTextColumn Header="Camera" Binding="{Binding Camera}" Width="150" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Locuri camera" Binding="{Binding Loc}" Width="150"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
 
@@ -58,7 +58,7 @@
                 <Label  x:Name="labelhotel" Content="" Foreground="white"  Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top"  FontSize="20" Height="37" Width="10"/>
 
                 <TextBlock Text="Stele:" Foreground="white" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" Height="28" Width="102" FontSize="20" />
-                <Label  x:Name="labelOras" Content=""   Foreground="white" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top"   FontSize="20" Height="37" Width="10"/>
+                <Label  x:Name="labelStele" Content=""   Foreground="white" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top"   FontSize="20" Height="37" Width="10"/>
 
                 <TextBlock Text="Data de inceput" Foreground="white" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Height="40" Width="149" FontSize="20" />
                 <Label  x:Name="labelDataI" Content=""  Foreground="white" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Top"  FontSize="20" Height="37" Width="10"/>

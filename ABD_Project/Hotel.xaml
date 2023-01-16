@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ABD_Project.Pages"
         mc:Ignorable="d"
-        Title="Hotel" Height="780" Width="950" WindowStartupLocation="CenterScreen" ResizeMode="NoResize"  Background="#FF00367F">
+        Title="Hotel" Height="780" Width="960" WindowStartupLocation="CenterScreen"  Background="#FF00367F">
     <Grid>
         <Grid Margin="98,612,552,52" Height="70" Width="250" >
             <Button  Click="btn_like" Width="30" Height="30" Name="like" Margin="159,20,61,20"  >
@@ -23,14 +23,18 @@
         <TextBlock  Text="Poze disponibile:" Width="220" Height="30" FontSize="25" Margin="433,61,247,643" Foreground="White" TextAlignment="Center"></TextBlock>
         <TextBlock  Text="Detalii rezervare:" Width="220" Height="30" FontSize="25" Margin="565,340,115,364" Foreground="White" TextAlignment="Center"></TextBlock>
 
-        <DataGrid Height="200" Width="270" Margin="121,382,556,182" >
+        <DataGrid Name="DataGridFacilitati" Height="200" Margin="123,382,567,182" AutoGenerateColumns="False">
 
-
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="AdaugareFaciliate"/>
+                </Style>
+            </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Facilitate" Width="100" Binding="{Binding Facilitate }" IsReadOnly="True" ></DataGridTextColumn>
-                <DataGridTextColumn Header="Pret" Width="100" Binding="{Binding Pret }" IsReadOnly="True"  ></DataGridTextColumn>
-                <DataGridCheckBoxColumn Header="Adauga"></DataGridCheckBoxColumn>
+                <DataGridTextColumn  Header="Facilitate" Width="120" Binding="{Binding IDTipFacilitate }" IsReadOnly="True" ></DataGridTextColumn>
+                <DataGridTextColumn  Header="Pret" Width="120" Binding="{Binding Pret }" IsReadOnly="True"  ></DataGridTextColumn>
+
 
             </DataGrid.Columns>
 
@@ -38,17 +42,13 @@
 
         </DataGrid>
 
-        <Grid x:Name="create_Rezervare" Margin="525,383,75,71" Width="300" Height="280" Background="White">
+       
+            <DataGrid Name="DataGridRezervare" Width="300" Height="250" Margin="555,412,105,102">
 
-            <Grid.ColumnDefinitions>
+            </DataGrid>
 
-                <ColumnDefinition Width="131*"/>
-                <ColumnDefinition Width="170*"/>
-
-            </Grid.ColumnDefinitions>
-
-            <Button  Content="Rezervă"  Click="Rezervare" Name="btn_rezerva" Width="50" Height="20" Foreground="White" Background="#FF00367F" BorderBrush="Black" Margin="125,250,125,10" Grid.ColumnSpan="2"/>
-        </Grid>
+            <Button  Content="Rezervă"  Click="Rezervare" Name="btn_rezerva" Width="50" Height="20" Foreground="White" Background="#FF00367F" BorderBrush="Black" Margin="680,682,230,62"/>
+        
         <Grid  Background="#FF00367F" Width="250" Height="200" Margin="525,74,75,410" >
             <Image x:Name="Poza" Source="/Images/Hotel/Intercontinental/1.jpg" Stretch="Uniform" Margin="0,0,0,50" RenderTransformOrigin="0.5,0.5">
 
@@ -57,14 +57,18 @@
             <Button x:Name="Back" Click="btn_Back_Photo" Content="Back" Height="20" Width="40" Margin="55,171,155,9" Foreground="White" Background="#FF00367F" BorderBrush="Black"/>
 
         </Grid>
-        <DataGrid Height="100" Width="270" Margin="122,196,556,468" >
+        <DataGrid x:Name="CamereDisp" Margin="123,196,567,450" AutoGenerateColumns="False">
 
-
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="AdaugareCamera"/>
+                </Style>
+            </DataGrid.Resources>
 
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Camera" Width="100" Binding="{Binding Camera }" IsReadOnly="True" ></DataGridTextColumn>
-                <DataGridTextColumn Header="Locuri" Width="100" Binding="{Binding Locuri }" IsReadOnly="True"  ></DataGridTextColumn>
-                <DataGridCheckBoxColumn Header="Adauga"></DataGridCheckBoxColumn>
+                <DataGridTextColumn Header="Tipul Camerei" Width="120" Binding="{Binding TipCamera }" IsReadOnly="True" ></DataGridTextColumn>
+                <DataGridTextColumn Header="Nr. camere" Width="120" Binding="{Binding Disp }" IsReadOnly="True"  ></DataGridTextColumn>
+
 
             </DataGrid.Columns>
 

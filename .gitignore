@@ -396,3 +396,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+ABD_Project/App.config
+ABD_Project/Baza.Designer.cs
+ABD_Project/Baza.edmx.diagram

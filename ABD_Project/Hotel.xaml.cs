@@ -43,16 +43,22 @@ namespace ABD_Project.Pages
 
             using(var context = new BookingEntities())
             {
-                var facilitati = (
+                var facilitati = 
                     (from tf in context.TipFacilitate
                      join fd in context.FacilitatiDisponibile on tf.IDTipFacilitate equals fd.IDTipFacilitate
                      join unitati in context.Unitati on fd.IDUnitate equals unitati.IDUnitate
                      where unitati.Nume == numeHotel
-                     select tf).ToList()
-                    );
+                     select new
+                     {
+                         IDTipFacilitate= tf.Denumire,
+                         Pret=tf.Pret
+                     }
+
+                    ).ToList();
 
                 //OK
                 //TO DO: pune facilitati in datagrid
+                DataGridFacilitati.ItemsSource = facilitati;
             }
 
             using (var context = new BookingEntities())
@@ -79,7 +85,7 @@ namespace ABD_Project.Pages
                                                 Disp = cu.NrDisp 
                                           }).ToList();
 
-                var camere_disponibile_new = camere_disponibile.Select(x => new
+               var camere_disponibile_new = camere_disponibile.Select(x => new
                 {
                     x.TipCamera,
                     Disp = x.Disp - camere_ocupate.Where(y => y.TipCamera == x.TipCamera).Select(y => y.NumarCamereOcupate).FirstOrDefault()
@@ -87,6 +93,10 @@ namespace ABD_Project.Pages
 
                 //OK
                 //TO DO: pune camere_disponibile_new in datagrid
+
+                CamereDisp.ItemsSource = camere_disponibile_new;
+
+                
             }
 
         }
@@ -127,9 +137,22 @@ namespace ABD_Project.Pages
             Poza.Source = new BitmapImage(new Uri(@"Images/Hotel" + numeHotel +" / " + photoIndex + ".jpeg", UriKind.Relative));
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+       
 
+        private void AdaugareCamera(object sender, MouseButtonEventArgs e)
+        {
+            var rez = CamereDisp.SelectedItem.ToString().Split(' ');
+            DataGridRezervare.Items.Add(rez[0]);
+            DataGridRezervare.Items.Add((string)rez[1]);
+            DataGridRezervare.ItemsSource = rez;
+            ///
+        }
+
+        private void AdaugareFaciliate(object sender, MouseButtonEventArgs e)
+        {
+            var rez = DataGridFacilitati.SelectedItem.ToString().Split(' ');
+            DataGridRezervare.Items.Add(rez[0]);
+            ///
         }
     }
 }
