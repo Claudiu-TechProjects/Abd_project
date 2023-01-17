@@ -20,20 +20,20 @@ namespace ABD_Project.Pages
         
         public class Rezerv
         {
-           public int ID { get; set; }
+           public int Rezervare { get; set; }
             public string Hotel { get; set; }
-            public string Datainceput { get; set; }
-            public string Datasfarsit { get; set; }
+            public string Data_de_inceput { get; set; }
+            public string Data_de_final { get; set; }
 
-            public string status { get; set; }
+            public string Status { get; set; }
 
              public Rezerv(int id,string hotel,string datai,string datas,string stat)
             {
-                ID = id;
+                Rezervare = id;
                 Hotel = hotel;
-                Datainceput = datai;
-                Datasfarsit = datas;
-                status = stat;
+                Data_de_inceput = datai;
+                Data_de_final = datas;
+                Status = stat;
 
             }
 
@@ -98,16 +98,11 @@ namespace ABD_Project.Pages
            
             int.TryParse(rez[0], out int id);
             string Status="activa";
-            Rezervare rezervare = new Rezervare(id,Status);
+            Rezervare rezervare = new Rezervare(1,Status);
             rezervare.ShowDialog();
 
         }
 
-        private void btn12(object sender, RoutedEventArgs e)
-        {
-            Rezervare r1 = new Rezervare(1,"activa");
-            r1.ShowDialog();
-        }
     }
     
 }

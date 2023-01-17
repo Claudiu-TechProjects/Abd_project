@@ -14,6 +14,7 @@ namespace ABD_Project
     
     public partial class RecenziiUnitati
     {
+        public int IDRece { get; set; }
         public int IDUnitate { get; set; }
         public int IDUser { get; set; }
         public string Continut { get; set; }

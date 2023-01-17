@@ -14,6 +14,7 @@ namespace ABD_Project
     
     public partial class CamereUnitati
     {
+        public int IDcamunit { get; set; }
         public int IDUnitate { get; set; }
         public int IDTipCamera { get; set; }
         public int NrDisp { get; set; }

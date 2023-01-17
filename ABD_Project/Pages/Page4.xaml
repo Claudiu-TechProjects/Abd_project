@@ -8,15 +8,14 @@
       d:DesignHeight="800" d:DesignWidth="1000"
       Title="Page4"
       Background="#FF00367F">
-  
-    <Grid>
-        <Grid  Width="360" Height="50" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,44,0,0" >
-            <TextBlock Text="Rezervarile tale, " Foreground="white" Width="180" Height="50" HorizontalAlignment="Left" VerticalAlignment="Center"  TextAlignment="Center" FontSize="25"></TextBlock>
-            <Label Content="" Name="NameUser"   FontSize="25" Width="180" Margin="180,0,0,0" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Center " VerticalContentAlignment="Top" HorizontalContentAlignment="Left" Height="50"></Label>
 
-        </Grid>
-        <Button Width="10" Name="btn" Click="btn12"      Height="100" Margin="889,-4,106,-196"></Button>
-            <DataGrid Name="DataGridRezervari" HorizontalAlignment="Center" VerticalAlignment="Center" AutoGenerateColumns="False" Width="600" Height="400"  >
+    <Grid>
+
+        <TextBlock Text="Rezervarile tale, " Foreground="white" Width="180"   TextAlignment="Center" FontSize="25" Margin="346,74,474,692"/>
+        <Label Content="" Name="NameUser"   FontSize="25" Width="172" Margin="554,74,274,692" Foreground="White"  Height="34"></Label>
+
+
+        <DataGrid Name="DataGridRezervari" HorizontalAlignment="Center" VerticalAlignment="Center" AutoGenerateColumns="False" Width="600" Height="400" >
 
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
@@ -24,7 +23,7 @@
                 </Style>
             </DataGrid.Resources>
             <DataGrid.Columns>
-                
+
                 <DataGridTextColumn Header="Rezervare" Binding="{Binding Rezervare}" Width="80" IsReadOnly="True"></DataGridTextColumn>
                 <DataGridTextColumn Header="Hotel" Binding="{Binding Hotel}" Width="120" IsReadOnly="True" ></DataGridTextColumn>
                 <DataGridTextColumn Header="Data de inceput" Binding="{Binding Data_de_inceput}" Width="150" IsReadOnly="True"></DataGridTextColumn>

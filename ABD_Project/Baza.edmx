@@ -5,29 +5,21 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="BookingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Booking.dbo.CamereOcupate' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="CamereOcupate">
           <Key>
-            <PropertyRef Name="IDUnitate" />
-            <PropertyRef Name="IDTipCamera" />
-            <PropertyRef Name="DataInceput" />
-            <PropertyRef Name="DataSfarsit" />
+            <PropertyRef Name="IDcam" />
           </Key>
+          <Property Name="IDcam" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDUnitate" Type="int" Nullable="false" />
           <Property Name="IDTipCamera" Type="int" Nullable="false" />
           <Property Name="DataInceput" Type="date" Nullable="false" />
           <Property Name="DataSfarsit" Type="date" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Booking.dbo.CamereUnitati' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="CamereUnitati">
           <Key>
-            <PropertyRef Name="IDUnitate" />
-            <PropertyRef Name="IDTipCamera" />
-            <PropertyRef Name="NrDisp" />
-            <PropertyRef Name="Pret" />
+            <PropertyRef Name="IDcamunit" />
           </Key>
+          <Property Name="IDcamunit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDUnitate" Type="int" Nullable="false" />
           <Property Name="IDTipCamera" Type="int" Nullable="false" />
           <Property Name="NrDisp" Type="int" Nullable="false" />
@@ -49,13 +41,11 @@ warning 6002: The table/view 'Booking.dbo.CamereUnitati' does not have a primary
           <Property Name="IDRezervare" Type="int" Nullable="false" />
           <Property Name="IDTipFacilitate" Type="int" Nullable="false" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Booking.dbo.RecenziiUnitati' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="RecenziiUnitati">
           <Key>
-            <PropertyRef Name="IDUnitate" />
-            <PropertyRef Name="IDUser" />
+            <PropertyRef Name="IDRece" />
           </Key>
+          <Property Name="IDRece" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDUnitate" Type="int" Nullable="false" />
           <Property Name="IDUser" Type="int" Nullable="false" />
           <Property Name="Continut" Type="nvarchar" MaxLength="256" />
@@ -71,14 +61,11 @@ warning 6002: The table/view 'Booking.dbo.RecenziiUnitati' does not have a prima
           <Property Name="EndDate" Type="date" Nullable="false" />
           <Property Name="PretTotal" Type="money" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="RezervariUsers">
           <Key>
-            <PropertyRef Name="IDRezervare" />
-            <PropertyRef Name="IDUnitate" />
-            <PropertyRef Name="IDUser" />
+            <PropertyRef Name="IDRezUs" />
           </Key>
+          <Property Name="IDRezUs" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="IDRezervare" Type="int" Nullable="false" />
           <Property Name="IDUnitate" Type="int" Nullable="false" />
           <Property Name="IDUser" Type="int" Nullable="false" />
@@ -125,7 +112,7 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
           <Property Name="Telefon" Type="nvarchar" MaxLength="10" />
           <Property Name="Imagine" Type="nvarchar" MaxLength="100" />
         </EntityType>
-        <Association Name="FK__CamereOcu__IDTip__2F10007B">
+        <Association Name="FK__CamereOcu__IDTip__30F848ED">
           <End Role="TipCamera" Type="Self.TipCamera" Multiplicity="1" />
           <End Role="CamereOcupate" Type="Self.CamereOcupate" Multiplicity="*" />
           <ReferentialConstraint>
@@ -137,7 +124,7 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CamereOcu__IDUni__2E1BDC42">
+        <Association Name="FK__CamereOcu__IDUni__300424B4">
           <End Role="Unitati" Type="Self.Unitati" Multiplicity="1" />
           <End Role="CamereOcupate" Type="Self.CamereOcupate" Multiplicity="*" />
           <ReferentialConstraint>
@@ -149,7 +136,7 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CamereUni__IDTip__31EC6D26">
+        <Association Name="FK__CamereUni__IDTip__34C8D9D1">
           <End Role="TipCamera" Type="Self.TipCamera" Multiplicity="1" />
           <End Role="CamereUnitati" Type="Self.CamereUnitati" Multiplicity="*" />
           <ReferentialConstraint>
@@ -161,7 +148,7 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__CamereUni__IDUni__30F848ED">
+        <Association Name="FK__CamereUni__IDUni__33D4B598">
           <End Role="Unitati" Type="Self.Unitati" Multiplicity="1" />
           <End Role="CamereUnitati" Type="Self.CamereUnitati" Multiplicity="*" />
           <ReferentialConstraint>
@@ -173,7 +160,7 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Facilitat__IDRez__412EB0B6">
+        <Association Name="FK__Facilitat__IDRez__44FF419A">
           <End Role="Rezervari" Type="Self.Rezervari" Multiplicity="1" />
           <End Role="FacilitatiRezervare" Type="Self.FacilitatiRezervare" Multiplicity="*" />
           <ReferentialConstraint>
@@ -185,7 +172,7 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Facilitat__IDTip__3E52440B">
+        <Association Name="FK__Facilitat__IDTip__4222D4EF">
           <End Role="TipFacilitate" Type="Self.TipFacilitate" Multiplicity="1" />
           <End Role="FacilitatiDisponibile" Type="Self.FacilitatiDisponibile" Multiplicity="*" />
           <ReferentialConstraint>
@@ -197,7 +184,7 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Facilitat__IDTip__4222D4EF">
+        <Association Name="FK__Facilitat__IDTip__45F365D3">
           <End Role="TipFacilitate" Type="Self.TipFacilitate" Multiplicity="1" />
           <End Role="FacilitatiRezervare" Type="Self.FacilitatiRezervare" Multiplicity="*" />
           <ReferentialConstraint>
@@ -209,7 +196,7 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Facilitat__IDUni__3D5E1FD2">
+        <Association Name="FK__Facilitat__IDUni__412EB0B6">
           <End Role="Unitati" Type="Self.Unitati" Multiplicity="1" />
           <End Role="FacilitatiDisponibile" Type="Self.FacilitatiDisponibile" Multiplicity="*" />
           <ReferentialConstraint>
@@ -221,7 +208,7 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RecenziiU__IDUni__29572725">
+        <Association Name="FK__RecenziiU__IDUni__2A4B4B5E">
           <End Role="Unitati" Type="Self.Unitati" Multiplicity="1" />
           <End Role="RecenziiUnitati" Type="Self.RecenziiUnitati" Multiplicity="*" />
           <ReferentialConstraint>
@@ -233,7 +220,7 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RecenziiU__IDUse__2A4B4B5E">
+        <Association Name="FK__RecenziiU__IDUse__2B3F6F97">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="RecenziiUnitati" Type="Self.RecenziiUnitati" Multiplicity="*" />
           <ReferentialConstraint>
@@ -245,7 +232,7 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rezervari__IDRez__36B12243">
+        <Association Name="FK__Rezervari__IDRez__3A81B327">
           <End Role="Rezervari" Type="Self.Rezervari" Multiplicity="1" />
           <End Role="RezervariUsers" Type="Self.RezervariUsers" Multiplicity="*" />
           <ReferentialConstraint>
@@ -257,7 +244,7 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rezervari__IDTip__34C8D9D1">
+        <Association Name="FK__Rezervari__IDTip__37A5467C">
           <End Role="TipCamera" Type="Self.TipCamera" Multiplicity="1" />
           <End Role="Rezervari" Type="Self.Rezervari" Multiplicity="*" />
           <ReferentialConstraint>
@@ -269,7 +256,7 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rezervari__IDUni__37A5467C">
+        <Association Name="FK__Rezervari__IDUni__3B75D760">
           <End Role="Unitati" Type="Self.Unitati" Multiplicity="1" />
           <End Role="RezervariUsers" Type="Self.RezervariUsers" Multiplicity="*" />
           <ReferentialConstraint>
@@ -281,7 +268,7 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rezervari__IDUse__38996AB5">
+        <Association Name="FK__Rezervari__IDUse__3C69FB99">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="RezervariUsers" Type="Self.RezervariUsers" Multiplicity="*" />
           <ReferentialConstraint>
@@ -294,97 +281,70 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="BookingModelStoreContainer">
+          <EntitySet Name="CamereOcupate" EntityType="Self.CamereOcupate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CamereUnitati" EntityType="Self.CamereUnitati" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FacilitatiDisponibile" EntityType="Self.FacilitatiDisponibile" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FacilitatiRezervare" EntityType="Self.FacilitatiRezervare" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RecenziiUnitati" EntityType="Self.RecenziiUnitati" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rezervari" EntityType="Self.Rezervari" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RezervariUsers" EntityType="Self.RezervariUsers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipCamera" EntityType="Self.TipCamera" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipFacilitate" EntityType="Self.TipFacilitate" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Unitati" EntityType="Self.Unitati" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CamereOcupate" EntityType="Self.CamereOcupate" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [CamereOcupate].[IDUnitate] AS [IDUnitate], 
-    [CamereOcupate].[IDTipCamera] AS [IDTipCamera], 
-    [CamereOcupate].[DataInceput] AS [DataInceput], 
-    [CamereOcupate].[DataSfarsit] AS [DataSfarsit]
-    FROM [dbo].[CamereOcupate] AS [CamereOcupate]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="CamereUnitati" EntityType="Self.CamereUnitati" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [CamereUnitati].[IDUnitate] AS [IDUnitate], 
-    [CamereUnitati].[IDTipCamera] AS [IDTipCamera], 
-    [CamereUnitati].[NrDisp] AS [NrDisp], 
-    [CamereUnitati].[Pret] AS [Pret]
-    FROM [dbo].[CamereUnitati] AS [CamereUnitati]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="RecenziiUnitati" EntityType="Self.RecenziiUnitati" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [RecenziiUnitati].[IDUnitate] AS [IDUnitate], 
-    [RecenziiUnitati].[IDUser] AS [IDUser], 
-    [RecenziiUnitati].[Continut] AS [Continut], 
-    [RecenziiUnitati].[Rate] AS [Rate]
-    FROM [dbo].[RecenziiUnitati] AS [RecenziiUnitati]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="RezervariUsers" EntityType="Self.RezervariUsers" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [RezervariUsers].[IDRezervare] AS [IDRezervare], 
-    [RezervariUsers].[IDUnitate] AS [IDUnitate], 
-    [RezervariUsers].[IDUser] AS [IDUser]
-    FROM [dbo].[RezervariUsers] AS [RezervariUsers]</DefiningQuery>
-          </EntitySet>
-          <AssociationSet Name="FK__CamereOcu__IDTip__2F10007B" Association="Self.FK__CamereOcu__IDTip__2F10007B">
+          <AssociationSet Name="FK__CamereOcu__IDTip__30F848ED" Association="Self.FK__CamereOcu__IDTip__30F848ED">
             <End Role="TipCamera" EntitySet="TipCamera" />
             <End Role="CamereOcupate" EntitySet="CamereOcupate" />
           </AssociationSet>
-          <AssociationSet Name="FK__CamereOcu__IDUni__2E1BDC42" Association="Self.FK__CamereOcu__IDUni__2E1BDC42">
+          <AssociationSet Name="FK__CamereOcu__IDUni__300424B4" Association="Self.FK__CamereOcu__IDUni__300424B4">
             <End Role="Unitati" EntitySet="Unitati" />
             <End Role="CamereOcupate" EntitySet="CamereOcupate" />
           </AssociationSet>
-          <AssociationSet Name="FK__CamereUni__IDTip__31EC6D26" Association="Self.FK__CamereUni__IDTip__31EC6D26">
+          <AssociationSet Name="FK__CamereUni__IDTip__34C8D9D1" Association="Self.FK__CamereUni__IDTip__34C8D9D1">
             <End Role="TipCamera" EntitySet="TipCamera" />
             <End Role="CamereUnitati" EntitySet="CamereUnitati" />
           </AssociationSet>
-          <AssociationSet Name="FK__CamereUni__IDUni__30F848ED" Association="Self.FK__CamereUni__IDUni__30F848ED">
+          <AssociationSet Name="FK__CamereUni__IDUni__33D4B598" Association="Self.FK__CamereUni__IDUni__33D4B598">
             <End Role="Unitati" EntitySet="Unitati" />
             <End Role="CamereUnitati" EntitySet="CamereUnitati" />
           </AssociationSet>
-          <AssociationSet Name="FK__Facilitat__IDRez__412EB0B6" Association="Self.FK__Facilitat__IDRez__412EB0B6">
+          <AssociationSet Name="FK__Facilitat__IDRez__44FF419A" Association="Self.FK__Facilitat__IDRez__44FF419A">
             <End Role="Rezervari" EntitySet="Rezervari" />
             <End Role="FacilitatiRezervare" EntitySet="FacilitatiRezervare" />
-          </AssociationSet>
-          <AssociationSet Name="FK__Facilitat__IDTip__3E52440B" Association="Self.FK__Facilitat__IDTip__3E52440B">
-            <End Role="TipFacilitate" EntitySet="TipFacilitate" />
-            <End Role="FacilitatiDisponibile" EntitySet="FacilitatiDisponibile" />
           </AssociationSet>
           <AssociationSet Name="FK__Facilitat__IDTip__4222D4EF" Association="Self.FK__Facilitat__IDTip__4222D4EF">
             <End Role="TipFacilitate" EntitySet="TipFacilitate" />
+            <End Role="FacilitatiDisponibile" EntitySet="FacilitatiDisponibile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Facilitat__IDTip__45F365D3" Association="Self.FK__Facilitat__IDTip__45F365D3">
+            <End Role="TipFacilitate" EntitySet="TipFacilitate" />
             <End Role="FacilitatiRezervare" EntitySet="FacilitatiRezervare" />
           </AssociationSet>
-          <AssociationSet Name="FK__Facilitat__IDUni__3D5E1FD2" Association="Self.FK__Facilitat__IDUni__3D5E1FD2">
+          <AssociationSet Name="FK__Facilitat__IDUni__412EB0B6" Association="Self.FK__Facilitat__IDUni__412EB0B6">
             <End Role="Unitati" EntitySet="Unitati" />
             <End Role="FacilitatiDisponibile" EntitySet="FacilitatiDisponibile" />
           </AssociationSet>
-          <AssociationSet Name="FK__RecenziiU__IDUni__29572725" Association="Self.FK__RecenziiU__IDUni__29572725">
+          <AssociationSet Name="FK__RecenziiU__IDUni__2A4B4B5E" Association="Self.FK__RecenziiU__IDUni__2A4B4B5E">
             <End Role="Unitati" EntitySet="Unitati" />
             <End Role="RecenziiUnitati" EntitySet="RecenziiUnitati" />
           </AssociationSet>
-          <AssociationSet Name="FK__RecenziiU__IDUse__2A4B4B5E" Association="Self.FK__RecenziiU__IDUse__2A4B4B5E">
+          <AssociationSet Name="FK__RecenziiU__IDUse__2B3F6F97" Association="Self.FK__RecenziiU__IDUse__2B3F6F97">
             <End Role="Users" EntitySet="Users" />
             <End Role="RecenziiUnitati" EntitySet="RecenziiUnitati" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rezervari__IDRez__36B12243" Association="Self.FK__Rezervari__IDRez__36B12243">
+          <AssociationSet Name="FK__Rezervari__IDRez__3A81B327" Association="Self.FK__Rezervari__IDRez__3A81B327">
             <End Role="Rezervari" EntitySet="Rezervari" />
             <End Role="RezervariUsers" EntitySet="RezervariUsers" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rezervari__IDTip__34C8D9D1" Association="Self.FK__Rezervari__IDTip__34C8D9D1">
+          <AssociationSet Name="FK__Rezervari__IDTip__37A5467C" Association="Self.FK__Rezervari__IDTip__37A5467C">
             <End Role="TipCamera" EntitySet="TipCamera" />
             <End Role="Rezervari" EntitySet="Rezervari" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rezervari__IDUni__37A5467C" Association="Self.FK__Rezervari__IDUni__37A5467C">
+          <AssociationSet Name="FK__Rezervari__IDUni__3B75D760" Association="Self.FK__Rezervari__IDUni__3B75D760">
             <End Role="Unitati" EntitySet="Unitati" />
             <End Role="RezervariUsers" EntitySet="RezervariUsers" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rezervari__IDUse__38996AB5" Association="Self.FK__Rezervari__IDUse__38996AB5">
+          <AssociationSet Name="FK__Rezervari__IDUse__3C69FB99" Association="Self.FK__Rezervari__IDUse__3C69FB99">
             <End Role="Users" EntitySet="Users" />
             <End Role="RezervariUsers" EntitySet="RezervariUsers" />
           </AssociationSet>
@@ -394,6 +354,30 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BookingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CamereOcupate">
+          <Key>
+            <PropertyRef Name="IDcam" />
+          </Key>
+          <Property Name="IDcam" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDUnitate" Type="Int32" Nullable="false" />
+          <Property Name="IDTipCamera" Type="Int32" Nullable="false" />
+          <Property Name="DataInceput" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DataSfarsit" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="TipCamera" Relationship="Self.FK__CamereOcu__IDTip__30F848ED" FromRole="CamereOcupate" ToRole="TipCamera" />
+          <NavigationProperty Name="Unitati" Relationship="Self.FK__CamereOcu__IDUni__300424B4" FromRole="CamereOcupate" ToRole="Unitati" />
+        </EntityType>
+        <EntityType Name="CamereUnitati">
+          <Key>
+            <PropertyRef Name="IDcamunit" />
+          </Key>
+          <Property Name="IDcamunit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDUnitate" Type="Int32" Nullable="false" />
+          <Property Name="IDTipCamera" Type="Int32" Nullable="false" />
+          <Property Name="NrDisp" Type="Int32" Nullable="false" />
+          <Property Name="Pret" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TipCamera" Relationship="Self.FK__CamereUni__IDTip__34C8D9D1" FromRole="CamereUnitati" ToRole="TipCamera" />
+          <NavigationProperty Name="Unitati" Relationship="Self.FK__CamereUni__IDUni__33D4B598" FromRole="CamereUnitati" ToRole="Unitati" />
+        </EntityType>
         <EntityType Name="FacilitatiDisponibile">
           <Key>
             <PropertyRef Name="IDFacilitatiDisp" />
@@ -401,8 +385,8 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
           <Property Name="IDFacilitatiDisp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDUnitate" Type="Int32" Nullable="false" />
           <Property Name="IDTipFacilitate" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="TipFacilitate" Relationship="Self.FK__Facilitat__IDTip__3E52440B" FromRole="FacilitatiDisponibile" ToRole="TipFacilitate" />
-          <NavigationProperty Name="Unitati" Relationship="Self.FK__Facilitat__IDUni__3D5E1FD2" FromRole="FacilitatiDisponibile" ToRole="Unitati" />
+          <NavigationProperty Name="TipFacilitate" Relationship="Self.FK__Facilitat__IDTip__4222D4EF" FromRole="FacilitatiDisponibile" ToRole="TipFacilitate" />
+          <NavigationProperty Name="Unitati" Relationship="Self.FK__Facilitat__IDUni__412EB0B6" FromRole="FacilitatiDisponibile" ToRole="Unitati" />
         </EntityType>
         <EntityType Name="FacilitatiRezervare">
           <Key>
@@ -411,8 +395,20 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
           <Property Name="IDFacilitatiRez" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="IDRezervare" Type="Int32" Nullable="false" />
           <Property Name="IDTipFacilitate" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Rezervari" Relationship="Self.FK__Facilitat__IDRez__412EB0B6" FromRole="FacilitatiRezervare" ToRole="Rezervari" />
-          <NavigationProperty Name="TipFacilitate" Relationship="Self.FK__Facilitat__IDTip__4222D4EF" FromRole="FacilitatiRezervare" ToRole="TipFacilitate" />
+          <NavigationProperty Name="Rezervari" Relationship="Self.FK__Facilitat__IDRez__44FF419A" FromRole="FacilitatiRezervare" ToRole="Rezervari" />
+          <NavigationProperty Name="TipFacilitate" Relationship="Self.FK__Facilitat__IDTip__45F365D3" FromRole="FacilitatiRezervare" ToRole="TipFacilitate" />
+        </EntityType>
+        <EntityType Name="RecenziiUnitati">
+          <Key>
+            <PropertyRef Name="IDRece" />
+          </Key>
+          <Property Name="IDRece" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDUnitate" Type="Int32" Nullable="false" />
+          <Property Name="IDUser" Type="Int32" Nullable="false" />
+          <Property Name="Continut" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="Rate" Type="Int32" />
+          <NavigationProperty Name="Unitati" Relationship="Self.FK__RecenziiU__IDUni__2A4B4B5E" FromRole="RecenziiUnitati" ToRole="Unitati" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__RecenziiU__IDUse__2B3F6F97" FromRole="RecenziiUnitati" ToRole="Users" />
         </EntityType>
         <EntityType Name="Rezervari">
           <Key>
@@ -423,9 +419,21 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
           <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="PretTotal" Type="Decimal" Precision="19" Scale="4" />
-          <NavigationProperty Name="FacilitatiRezervare" Relationship="Self.FK__Facilitat__IDRez__412EB0B6" FromRole="Rezervari" ToRole="FacilitatiRezervare" />
-          <NavigationProperty Name="RezervariUsers" Relationship="Self.FK__Rezervari__IDRez__36B12243" FromRole="Rezervari" ToRole="RezervariUsers" />
-          <NavigationProperty Name="TipCamera" Relationship="Self.FK__Rezervari__IDTip__34C8D9D1" FromRole="Rezervari" ToRole="TipCamera" />
+          <NavigationProperty Name="FacilitatiRezervare" Relationship="Self.FK__Facilitat__IDRez__44FF419A" FromRole="Rezervari" ToRole="FacilitatiRezervare" />
+          <NavigationProperty Name="RezervariUsers" Relationship="Self.FK__Rezervari__IDRez__3A81B327" FromRole="Rezervari" ToRole="RezervariUsers" />
+          <NavigationProperty Name="TipCamera" Relationship="Self.FK__Rezervari__IDTip__37A5467C" FromRole="Rezervari" ToRole="TipCamera" />
+        </EntityType>
+        <EntityType Name="RezervariUsers">
+          <Key>
+            <PropertyRef Name="IDRezUs" />
+          </Key>
+          <Property Name="IDRezUs" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IDRezervare" Type="Int32" Nullable="false" />
+          <Property Name="IDUnitate" Type="Int32" Nullable="false" />
+          <Property Name="IDUser" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Rezervari" Relationship="Self.FK__Rezervari__IDRez__3A81B327" FromRole="RezervariUsers" ToRole="Rezervari" />
+          <NavigationProperty Name="Unitati" Relationship="Self.FK__Rezervari__IDUni__3B75D760" FromRole="RezervariUsers" ToRole="Unitati" />
+          <NavigationProperty Name="Users" Relationship="Self.FK__Rezervari__IDUse__3C69FB99" FromRole="RezervariUsers" ToRole="Users" />
         </EntityType>
         <EntityType Name="TipCamera">
           <Key>
@@ -433,9 +441,9 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
           </Key>
           <Property Name="IDTipCamera" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NrLocuri" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Rezervari" Relationship="Self.FK__Rezervari__IDTip__34C8D9D1" FromRole="TipCamera" ToRole="Rezervari" />
-          <NavigationProperty Name="CamereOcupate" Relationship="Self.FK__CamereOcu__IDTip__2F10007B" FromRole="TipCamera" ToRole="CamereOcupate" />
-          <NavigationProperty Name="CamereUnitati" Relationship="Self.FK__CamereUni__IDTip__31EC6D26" FromRole="TipCamera" ToRole="CamereUnitati" />
+          <NavigationProperty Name="CamereOcupate" Relationship="Self.FK__CamereOcu__IDTip__30F848ED" FromRole="TipCamera" ToRole="CamereOcupate" />
+          <NavigationProperty Name="CamereUnitati" Relationship="Self.FK__CamereUni__IDTip__34C8D9D1" FromRole="TipCamera" ToRole="CamereUnitati" />
+          <NavigationProperty Name="Rezervari" Relationship="Self.FK__Rezervari__IDTip__37A5467C" FromRole="TipCamera" ToRole="Rezervari" />
         </EntityType>
         <EntityType Name="TipFacilitate">
           <Key>
@@ -444,8 +452,8 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
           <Property Name="IDTipFacilitate" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Denumire" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Pret" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="FacilitatiDisponibile" Relationship="Self.FK__Facilitat__IDTip__3E52440B" FromRole="TipFacilitate" ToRole="FacilitatiDisponibile" />
-          <NavigationProperty Name="FacilitatiRezervare" Relationship="Self.FK__Facilitat__IDTip__4222D4EF" FromRole="TipFacilitate" ToRole="FacilitatiRezervare" />
+          <NavigationProperty Name="FacilitatiDisponibile" Relationship="Self.FK__Facilitat__IDTip__4222D4EF" FromRole="TipFacilitate" ToRole="FacilitatiDisponibile" />
+          <NavigationProperty Name="FacilitatiRezervare" Relationship="Self.FK__Facilitat__IDTip__45F365D3" FromRole="TipFacilitate" ToRole="FacilitatiRezervare" />
         </EntityType>
         <EntityType Name="Unitati">
           <Key>
@@ -459,11 +467,11 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
           <Property Name="Stele" Type="Int32" Nullable="false" />
           <Property Name="Recenzii" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
           <Property Name="Imagine" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="FacilitatiDisponibile" Relationship="Self.FK__Facilitat__IDUni__3D5E1FD2" FromRole="Unitati" ToRole="FacilitatiDisponibile" />
-          <NavigationProperty Name="CamereOcupate" Relationship="Self.FK__CamereOcu__IDUni__2E1BDC42" FromRole="Unitati" ToRole="CamereOcupate" />
-          <NavigationProperty Name="CamereUnitati" Relationship="Self.FK__CamereUni__IDUni__30F848ED" FromRole="Unitati" ToRole="CamereUnitati" />
-          <NavigationProperty Name="RecenziiUnitati" Relationship="Self.FK__RecenziiU__IDUni__29572725" FromRole="Unitati" ToRole="RecenziiUnitati" />
-          <NavigationProperty Name="RezervariUsers" Relationship="Self.FK__Rezervari__IDUni__37A5467C" FromRole="Unitati" ToRole="RezervariUsers" />
+          <NavigationProperty Name="CamereOcupate" Relationship="Self.FK__CamereOcu__IDUni__300424B4" FromRole="Unitati" ToRole="CamereOcupate" />
+          <NavigationProperty Name="CamereUnitati" Relationship="Self.FK__CamereUni__IDUni__33D4B598" FromRole="Unitati" ToRole="CamereUnitati" />
+          <NavigationProperty Name="FacilitatiDisponibile" Relationship="Self.FK__Facilitat__IDUni__412EB0B6" FromRole="Unitati" ToRole="FacilitatiDisponibile" />
+          <NavigationProperty Name="RecenziiUnitati" Relationship="Self.FK__RecenziiU__IDUni__2A4B4B5E" FromRole="Unitati" ToRole="RecenziiUnitati" />
+          <NavigationProperty Name="RezervariUsers" Relationship="Self.FK__Rezervari__IDUni__3B75D760" FromRole="Unitati" ToRole="RezervariUsers" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -478,100 +486,95 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
           <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
           <Property Name="Telefon" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="Imagine" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="RecenziiUnitati" Relationship="Self.FK__RecenziiU__IDUse__2A4B4B5E" FromRole="Users" ToRole="RecenziiUnitati" />
-          <NavigationProperty Name="RezervariUsers" Relationship="Self.FK__Rezervari__IDUse__38996AB5" FromRole="Users" ToRole="RezervariUsers" />
+          <NavigationProperty Name="RecenziiUnitati" Relationship="Self.FK__RecenziiU__IDUse__2B3F6F97" FromRole="Users" ToRole="RecenziiUnitati" />
+          <NavigationProperty Name="RezervariUsers" Relationship="Self.FK__Rezervari__IDUse__3C69FB99" FromRole="Users" ToRole="RezervariUsers" />
         </EntityType>
-        <EntityType Name="CamereOcupate">
-          <Key>
-            <PropertyRef Name="IDUnitate" />
-            <PropertyRef Name="IDTipCamera" />
-            <PropertyRef Name="DataInceput" />
-            <PropertyRef Name="DataSfarsit" />
-          </Key>
-          <Property Name="IDUnitate" Type="Int32" Nullable="false" />
-          <Property Name="IDTipCamera" Type="Int32" Nullable="false" />
-          <Property Name="DataInceput" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="DataSfarsit" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="TipCamera" Relationship="Self.FK__CamereOcu__IDTip__2F10007B" FromRole="CamereOcupate" ToRole="TipCamera" />
-          <NavigationProperty Name="Unitati" Relationship="Self.FK__CamereOcu__IDUni__2E1BDC42" FromRole="CamereOcupate" ToRole="Unitati" />
-        </EntityType>
-        <EntityType Name="CamereUnitati">
-          <Key>
-            <PropertyRef Name="IDUnitate" />
-            <PropertyRef Name="IDTipCamera" />
-            <PropertyRef Name="NrDisp" />
-            <PropertyRef Name="Pret" />
-          </Key>
-          <Property Name="IDUnitate" Type="Int32" Nullable="false" />
-          <Property Name="IDTipCamera" Type="Int32" Nullable="false" />
-          <Property Name="NrDisp" Type="Int32" Nullable="false" />
-          <Property Name="Pret" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="TipCamera" Relationship="Self.FK__CamereUni__IDTip__31EC6D26" FromRole="CamereUnitati" ToRole="TipCamera" />
-          <NavigationProperty Name="Unitati" Relationship="Self.FK__CamereUni__IDUni__30F848ED" FromRole="CamereUnitati" ToRole="Unitati" />
-        </EntityType>
-        <EntityType Name="RecenziiUnitati">
-          <Key>
-            <PropertyRef Name="IDUnitate" />
-            <PropertyRef Name="IDUser" />
-          </Key>
-          <Property Name="IDUnitate" Type="Int32" Nullable="false" />
-          <Property Name="IDUser" Type="Int32" Nullable="false" />
-          <Property Name="Continut" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-          <Property Name="Rate" Type="Int32" />
-          <NavigationProperty Name="Unitati" Relationship="Self.FK__RecenziiU__IDUni__29572725" FromRole="RecenziiUnitati" ToRole="Unitati" />
-          <NavigationProperty Name="Users" Relationship="Self.FK__RecenziiU__IDUse__2A4B4B5E" FromRole="RecenziiUnitati" ToRole="Users" />
-        </EntityType>
-        <EntityType Name="RezervariUsers">
-          <Key>
-            <PropertyRef Name="IDRezervare" />
-            <PropertyRef Name="IDUnitate" />
-            <PropertyRef Name="IDUser" />
-          </Key>
-          <Property Name="IDRezervare" Type="Int32" Nullable="false" />
-          <Property Name="IDUnitate" Type="Int32" Nullable="false" />
-          <Property Name="IDUser" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Rezervari" Relationship="Self.FK__Rezervari__IDRez__36B12243" FromRole="RezervariUsers" ToRole="Rezervari" />
-          <NavigationProperty Name="Unitati" Relationship="Self.FK__Rezervari__IDUni__37A5467C" FromRole="RezervariUsers" ToRole="Unitati" />
-          <NavigationProperty Name="Users" Relationship="Self.FK__Rezervari__IDUse__38996AB5" FromRole="RezervariUsers" ToRole="Users" />
-        </EntityType>
-        <Association Name="FK__Facilitat__IDTip__3E52440B">
-          <End Role="TipFacilitate" Type="Self.TipFacilitate" Multiplicity="1" />
-          <End Role="FacilitatiDisponibile" Type="Self.FacilitatiDisponibile" Multiplicity="*" />
+        <Association Name="FK__CamereOcu__IDTip__30F848ED">
+          <End Role="TipCamera" Type="Self.TipCamera" Multiplicity="1" />
+          <End Role="CamereOcupate" Type="Self.CamereOcupate" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="TipFacilitate">
-              <PropertyRef Name="IDTipFacilitate" />
+            <Principal Role="TipCamera">
+              <PropertyRef Name="IDTipCamera" />
             </Principal>
-            <Dependent Role="FacilitatiDisponibile">
-              <PropertyRef Name="IDTipFacilitate" />
+            <Dependent Role="CamereOcupate">
+              <PropertyRef Name="IDTipCamera" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Facilitat__IDUni__3D5E1FD2">
+        <Association Name="FK__CamereOcu__IDUni__300424B4">
           <End Role="Unitati" Type="Self.Unitati" Multiplicity="1" />
-          <End Role="FacilitatiDisponibile" Type="Self.FacilitatiDisponibile" Multiplicity="*" />
+          <End Role="CamereOcupate" Type="Self.CamereOcupate" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Unitati">
               <PropertyRef Name="IDUnitate" />
             </Principal>
-            <Dependent Role="FacilitatiDisponibile">
+            <Dependent Role="CamereOcupate">
               <PropertyRef Name="IDUnitate" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Facilitat__IDRez__412EB0B6">
-          <End Role="Rezervari" Type="Self.Rezervari" Multiplicity="1" />
-          <End Role="FacilitatiRezervare" Type="Self.FacilitatiRezervare" Multiplicity="*" />
+        <Association Name="FK__CamereUni__IDTip__34C8D9D1">
+          <End Role="TipCamera" Type="Self.TipCamera" Multiplicity="1" />
+          <End Role="CamereUnitati" Type="Self.CamereUnitati" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Rezervari">
-              <PropertyRef Name="IDRezervare" />
+            <Principal Role="TipCamera">
+              <PropertyRef Name="IDTipCamera" />
             </Principal>
-            <Dependent Role="FacilitatiRezervare">
-              <PropertyRef Name="IDRezervare" />
+            <Dependent Role="CamereUnitati">
+              <PropertyRef Name="IDTipCamera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CamereUni__IDUni__33D4B598">
+          <End Role="Unitati" Type="Self.Unitati" Multiplicity="1" />
+          <End Role="CamereUnitati" Type="Self.CamereUnitati" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unitati">
+              <PropertyRef Name="IDUnitate" />
+            </Principal>
+            <Dependent Role="CamereUnitati">
+              <PropertyRef Name="IDUnitate" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__Facilitat__IDTip__4222D4EF">
           <End Role="TipFacilitate" Type="Self.TipFacilitate" Multiplicity="1" />
+          <End Role="FacilitatiDisponibile" Type="Self.FacilitatiDisponibile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipFacilitate">
+              <PropertyRef Name="IDTipFacilitate" />
+            </Principal>
+            <Dependent Role="FacilitatiDisponibile">
+              <PropertyRef Name="IDTipFacilitate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Facilitat__IDUni__412EB0B6">
+          <End Role="Unitati" Type="Self.Unitati" Multiplicity="1" />
+          <End Role="FacilitatiDisponibile" Type="Self.FacilitatiDisponibile" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unitati">
+              <PropertyRef Name="IDUnitate" />
+            </Principal>
+            <Dependent Role="FacilitatiDisponibile">
+              <PropertyRef Name="IDUnitate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Facilitat__IDRez__44FF419A">
+          <End Role="Rezervari" Type="Self.Rezervari" Multiplicity="1" />
+          <End Role="FacilitatiRezervare" Type="Self.FacilitatiRezervare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rezervari">
+              <PropertyRef Name="IDRezervare" />
+            </Principal>
+            <Dependent Role="FacilitatiRezervare">
+              <PropertyRef Name="IDRezervare" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Facilitat__IDTip__45F365D3">
+          <End Role="TipFacilitate" Type="Self.TipFacilitate" Multiplicity="1" />
           <End Role="FacilitatiRezervare" Type="Self.FacilitatiRezervare" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TipFacilitate">
@@ -582,79 +585,7 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rezervari__IDRez__36B12243">
-          <End Role="Rezervari" Type="Self.Rezervari" Multiplicity="1" />
-          <End Role="RezervariUsers" Type="Self.RezervariUsers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Rezervari">
-              <PropertyRef Name="IDRezervare" />
-            </Principal>
-            <Dependent Role="RezervariUsers">
-              <PropertyRef Name="IDRezervare" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__Rezervari__IDTip__34C8D9D1">
-          <End Role="TipCamera" Type="Self.TipCamera" Multiplicity="1" />
-          <End Role="Rezervari" Type="Self.Rezervari" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TipCamera">
-              <PropertyRef Name="IDTipCamera" />
-            </Principal>
-            <Dependent Role="Rezervari">
-              <PropertyRef Name="IDTipCamera" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CamereOcu__IDTip__2F10007B">
-          <End Role="TipCamera" Type="Self.TipCamera" Multiplicity="1" />
-          <End Role="CamereOcupate" Type="Self.CamereOcupate" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TipCamera">
-              <PropertyRef Name="IDTipCamera" />
-            </Principal>
-            <Dependent Role="CamereOcupate">
-              <PropertyRef Name="IDTipCamera" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CamereUni__IDTip__31EC6D26">
-          <End Role="TipCamera" Type="Self.TipCamera" Multiplicity="1" />
-          <End Role="CamereUnitati" Type="Self.CamereUnitati" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TipCamera">
-              <PropertyRef Name="IDTipCamera" />
-            </Principal>
-            <Dependent Role="CamereUnitati">
-              <PropertyRef Name="IDTipCamera" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CamereOcu__IDUni__2E1BDC42">
-          <End Role="Unitati" Type="Self.Unitati" Multiplicity="1" />
-          <End Role="CamereOcupate" Type="Self.CamereOcupate" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Unitati">
-              <PropertyRef Name="IDUnitate" />
-            </Principal>
-            <Dependent Role="CamereOcupate">
-              <PropertyRef Name="IDUnitate" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__CamereUni__IDUni__30F848ED">
-          <End Role="Unitati" Type="Self.Unitati" Multiplicity="1" />
-          <End Role="CamereUnitati" Type="Self.CamereUnitati" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Unitati">
-              <PropertyRef Name="IDUnitate" />
-            </Principal>
-            <Dependent Role="CamereUnitati">
-              <PropertyRef Name="IDUnitate" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__RecenziiU__IDUni__29572725">
+        <Association Name="FK__RecenziiU__IDUni__2A4B4B5E">
           <End Role="Unitati" Type="Self.Unitati" Multiplicity="1" />
           <End Role="RecenziiUnitati" Type="Self.RecenziiUnitati" Multiplicity="*" />
           <ReferentialConstraint>
@@ -666,19 +597,7 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rezervari__IDUni__37A5467C">
-          <End Role="Unitati" Type="Self.Unitati" Multiplicity="1" />
-          <End Role="RezervariUsers" Type="Self.RezervariUsers" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Unitati">
-              <PropertyRef Name="IDUnitate" />
-            </Principal>
-            <Dependent Role="RezervariUsers">
-              <PropertyRef Name="IDUnitate" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__RecenziiU__IDUse__2A4B4B5E">
+        <Association Name="FK__RecenziiU__IDUse__2B3F6F97">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="RecenziiUnitati" Type="Self.RecenziiUnitati" Multiplicity="*" />
           <ReferentialConstraint>
@@ -690,7 +609,43 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Rezervari__IDUse__38996AB5">
+        <Association Name="FK__Rezervari__IDRez__3A81B327">
+          <End Role="Rezervari" Type="Self.Rezervari" Multiplicity="1" />
+          <End Role="RezervariUsers" Type="Self.RezervariUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rezervari">
+              <PropertyRef Name="IDRezervare" />
+            </Principal>
+            <Dependent Role="RezervariUsers">
+              <PropertyRef Name="IDRezervare" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rezervari__IDTip__37A5467C">
+          <End Role="TipCamera" Type="Self.TipCamera" Multiplicity="1" />
+          <End Role="Rezervari" Type="Self.Rezervari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipCamera">
+              <PropertyRef Name="IDTipCamera" />
+            </Principal>
+            <Dependent Role="Rezervari">
+              <PropertyRef Name="IDTipCamera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rezervari__IDUni__3B75D760">
+          <End Role="Unitati" Type="Self.Unitati" Multiplicity="1" />
+          <End Role="RezervariUsers" Type="Self.RezervariUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unitati">
+              <PropertyRef Name="IDUnitate" />
+            </Principal>
+            <Dependent Role="RezervariUsers">
+              <PropertyRef Name="IDUnitate" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rezervari__IDUse__3C69FB99">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="RezervariUsers" Type="Self.RezervariUsers" Multiplicity="*" />
           <ReferentialConstraint>
@@ -703,70 +658,70 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="BookingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CamereOcupate" EntityType="Self.CamereOcupate" />
+          <EntitySet Name="CamereUnitati" EntityType="Self.CamereUnitati" />
           <EntitySet Name="FacilitatiDisponibile" EntityType="Self.FacilitatiDisponibile" />
           <EntitySet Name="FacilitatiRezervare" EntityType="Self.FacilitatiRezervare" />
+          <EntitySet Name="RecenziiUnitati" EntityType="Self.RecenziiUnitati" />
           <EntitySet Name="Rezervari" EntityType="Self.Rezervari" />
+          <EntitySet Name="RezervariUsers" EntityType="Self.RezervariUsers" />
           <EntitySet Name="TipCamera" EntityType="Self.TipCamera" />
           <EntitySet Name="TipFacilitate" EntityType="Self.TipFacilitate" />
           <EntitySet Name="Unitati" EntityType="Self.Unitati" />
           <EntitySet Name="Users" EntityType="Self.Users" />
-          <EntitySet Name="CamereOcupate" EntityType="Self.CamereOcupate" />
-          <EntitySet Name="CamereUnitati" EntityType="Self.CamereUnitati" />
-          <EntitySet Name="RecenziiUnitati" EntityType="Self.RecenziiUnitati" />
-          <EntitySet Name="RezervariUsers" EntityType="Self.RezervariUsers" />
-          <AssociationSet Name="FK__Facilitat__IDTip__3E52440B" Association="Self.FK__Facilitat__IDTip__3E52440B">
-            <End Role="TipFacilitate" EntitySet="TipFacilitate" />
-            <End Role="FacilitatiDisponibile" EntitySet="FacilitatiDisponibile" />
+          <AssociationSet Name="FK__CamereOcu__IDTip__30F848ED" Association="Self.FK__CamereOcu__IDTip__30F848ED">
+            <End Role="TipCamera" EntitySet="TipCamera" />
+            <End Role="CamereOcupate" EntitySet="CamereOcupate" />
           </AssociationSet>
-          <AssociationSet Name="FK__Facilitat__IDUni__3D5E1FD2" Association="Self.FK__Facilitat__IDUni__3D5E1FD2">
+          <AssociationSet Name="FK__CamereOcu__IDUni__300424B4" Association="Self.FK__CamereOcu__IDUni__300424B4">
             <End Role="Unitati" EntitySet="Unitati" />
-            <End Role="FacilitatiDisponibile" EntitySet="FacilitatiDisponibile" />
+            <End Role="CamereOcupate" EntitySet="CamereOcupate" />
           </AssociationSet>
-          <AssociationSet Name="FK__Facilitat__IDRez__412EB0B6" Association="Self.FK__Facilitat__IDRez__412EB0B6">
-            <End Role="Rezervari" EntitySet="Rezervari" />
-            <End Role="FacilitatiRezervare" EntitySet="FacilitatiRezervare" />
+          <AssociationSet Name="FK__CamereUni__IDTip__34C8D9D1" Association="Self.FK__CamereUni__IDTip__34C8D9D1">
+            <End Role="TipCamera" EntitySet="TipCamera" />
+            <End Role="CamereUnitati" EntitySet="CamereUnitati" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CamereUni__IDUni__33D4B598" Association="Self.FK__CamereUni__IDUni__33D4B598">
+            <End Role="Unitati" EntitySet="Unitati" />
+            <End Role="CamereUnitati" EntitySet="CamereUnitati" />
           </AssociationSet>
           <AssociationSet Name="FK__Facilitat__IDTip__4222D4EF" Association="Self.FK__Facilitat__IDTip__4222D4EF">
             <End Role="TipFacilitate" EntitySet="TipFacilitate" />
+            <End Role="FacilitatiDisponibile" EntitySet="FacilitatiDisponibile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Facilitat__IDUni__412EB0B6" Association="Self.FK__Facilitat__IDUni__412EB0B6">
+            <End Role="Unitati" EntitySet="Unitati" />
+            <End Role="FacilitatiDisponibile" EntitySet="FacilitatiDisponibile" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Facilitat__IDRez__44FF419A" Association="Self.FK__Facilitat__IDRez__44FF419A">
+            <End Role="Rezervari" EntitySet="Rezervari" />
             <End Role="FacilitatiRezervare" EntitySet="FacilitatiRezervare" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rezervari__IDRez__36B12243" Association="Self.FK__Rezervari__IDRez__36B12243">
-            <End Role="Rezervari" EntitySet="Rezervari" />
-            <End Role="RezervariUsers" EntitySet="RezervariUsers" />
+          <AssociationSet Name="FK__Facilitat__IDTip__45F365D3" Association="Self.FK__Facilitat__IDTip__45F365D3">
+            <End Role="TipFacilitate" EntitySet="TipFacilitate" />
+            <End Role="FacilitatiRezervare" EntitySet="FacilitatiRezervare" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rezervari__IDTip__34C8D9D1" Association="Self.FK__Rezervari__IDTip__34C8D9D1">
-            <End Role="TipCamera" EntitySet="TipCamera" />
-            <End Role="Rezervari" EntitySet="Rezervari" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CamereOcu__IDTip__2F10007B" Association="Self.FK__CamereOcu__IDTip__2F10007B">
-            <End Role="TipCamera" EntitySet="TipCamera" />
-            <End Role="CamereOcupate" EntitySet="CamereOcupate" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CamereUni__IDTip__31EC6D26" Association="Self.FK__CamereUni__IDTip__31EC6D26">
-            <End Role="TipCamera" EntitySet="TipCamera" />
-            <End Role="CamereUnitati" EntitySet="CamereUnitati" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CamereOcu__IDUni__2E1BDC42" Association="Self.FK__CamereOcu__IDUni__2E1BDC42">
-            <End Role="Unitati" EntitySet="Unitati" />
-            <End Role="CamereOcupate" EntitySet="CamereOcupate" />
-          </AssociationSet>
-          <AssociationSet Name="FK__CamereUni__IDUni__30F848ED" Association="Self.FK__CamereUni__IDUni__30F848ED">
-            <End Role="Unitati" EntitySet="Unitati" />
-            <End Role="CamereUnitati" EntitySet="CamereUnitati" />
-          </AssociationSet>
-          <AssociationSet Name="FK__RecenziiU__IDUni__29572725" Association="Self.FK__RecenziiU__IDUni__29572725">
+          <AssociationSet Name="FK__RecenziiU__IDUni__2A4B4B5E" Association="Self.FK__RecenziiU__IDUni__2A4B4B5E">
             <End Role="Unitati" EntitySet="Unitati" />
             <End Role="RecenziiUnitati" EntitySet="RecenziiUnitati" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rezervari__IDUni__37A5467C" Association="Self.FK__Rezervari__IDUni__37A5467C">
-            <End Role="Unitati" EntitySet="Unitati" />
-            <End Role="RezervariUsers" EntitySet="RezervariUsers" />
-          </AssociationSet>
-          <AssociationSet Name="FK__RecenziiU__IDUse__2A4B4B5E" Association="Self.FK__RecenziiU__IDUse__2A4B4B5E">
+          <AssociationSet Name="FK__RecenziiU__IDUse__2B3F6F97" Association="Self.FK__RecenziiU__IDUse__2B3F6F97">
             <End Role="Users" EntitySet="Users" />
             <End Role="RecenziiUnitati" EntitySet="RecenziiUnitati" />
           </AssociationSet>
-          <AssociationSet Name="FK__Rezervari__IDUse__38996AB5" Association="Self.FK__Rezervari__IDUse__38996AB5">
+          <AssociationSet Name="FK__Rezervari__IDRez__3A81B327" Association="Self.FK__Rezervari__IDRez__3A81B327">
+            <End Role="Rezervari" EntitySet="Rezervari" />
+            <End Role="RezervariUsers" EntitySet="RezervariUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rezervari__IDTip__37A5467C" Association="Self.FK__Rezervari__IDTip__37A5467C">
+            <End Role="TipCamera" EntitySet="TipCamera" />
+            <End Role="Rezervari" EntitySet="Rezervari" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rezervari__IDUni__3B75D760" Association="Self.FK__Rezervari__IDUni__3B75D760">
+            <End Role="Unitati" EntitySet="Unitati" />
+            <End Role="RezervariUsers" EntitySet="RezervariUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rezervari__IDUse__3C69FB99" Association="Self.FK__Rezervari__IDUse__3C69FB99">
             <End Role="Users" EntitySet="Users" />
             <End Role="RezervariUsers" EntitySet="RezervariUsers" />
           </AssociationSet>
@@ -777,6 +732,28 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="BookingModelStoreContainer" CdmEntityContainer="BookingEntities">
+          <EntitySetMapping Name="CamereOcupate">
+            <EntityTypeMapping TypeName="BookingModel.CamereOcupate">
+              <MappingFragment StoreEntitySet="CamereOcupate">
+                <ScalarProperty Name="IDcam" ColumnName="IDcam" />
+                <ScalarProperty Name="IDUnitate" ColumnName="IDUnitate" />
+                <ScalarProperty Name="IDTipCamera" ColumnName="IDTipCamera" />
+                <ScalarProperty Name="DataInceput" ColumnName="DataInceput" />
+                <ScalarProperty Name="DataSfarsit" ColumnName="DataSfarsit" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CamereUnitati">
+            <EntityTypeMapping TypeName="BookingModel.CamereUnitati">
+              <MappingFragment StoreEntitySet="CamereUnitati">
+                <ScalarProperty Name="IDcamunit" ColumnName="IDcamunit" />
+                <ScalarProperty Name="IDUnitate" ColumnName="IDUnitate" />
+                <ScalarProperty Name="IDTipCamera" ColumnName="IDTipCamera" />
+                <ScalarProperty Name="NrDisp" ColumnName="NrDisp" />
+                <ScalarProperty Name="Pret" ColumnName="Pret" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="FacilitatiDisponibile">
             <EntityTypeMapping TypeName="BookingModel.FacilitatiDisponibile">
               <MappingFragment StoreEntitySet="FacilitatiDisponibile">
@@ -795,6 +772,17 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="RecenziiUnitati">
+            <EntityTypeMapping TypeName="BookingModel.RecenziiUnitati">
+              <MappingFragment StoreEntitySet="RecenziiUnitati">
+                <ScalarProperty Name="IDRece" ColumnName="IDRece" />
+                <ScalarProperty Name="IDUnitate" ColumnName="IDUnitate" />
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+                <ScalarProperty Name="Continut" ColumnName="Continut" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Rezervari">
             <EntityTypeMapping TypeName="BookingModel.Rezervari">
               <MappingFragment StoreEntitySet="Rezervari">
@@ -803,6 +791,16 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
                 <ScalarProperty Name="StartDate" ColumnName="StartDate" />
                 <ScalarProperty Name="EndDate" ColumnName="EndDate" />
                 <ScalarProperty Name="PretTotal" ColumnName="PretTotal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RezervariUsers">
+            <EntityTypeMapping TypeName="BookingModel.RezervariUsers">
+              <MappingFragment StoreEntitySet="RezervariUsers">
+                <ScalarProperty Name="IDRezUs" ColumnName="IDRezUs" />
+                <ScalarProperty Name="IDRezervare" ColumnName="IDRezervare" />
+                <ScalarProperty Name="IDUnitate" ColumnName="IDUnitate" />
+                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -849,45 +847,6 @@ warning 6002: The table/view 'Booking.dbo.RezervariUsers' does not have a primar
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Telefon" ColumnName="Telefon" />
                 <ScalarProperty Name="Imagine" ColumnName="Imagine" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CamereOcupate">
-            <EntityTypeMapping TypeName="BookingModel.CamereOcupate">
-              <MappingFragment StoreEntitySet="CamereOcupate">
-                <ScalarProperty Name="IDUnitate" ColumnName="IDUnitate" />
-                <ScalarProperty Name="IDTipCamera" ColumnName="IDTipCamera" />
-                <ScalarProperty Name="DataInceput" ColumnName="DataInceput" />
-                <ScalarProperty Name="DataSfarsit" ColumnName="DataSfarsit" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CamereUnitati">
-            <EntityTypeMapping TypeName="BookingModel.CamereUnitati">
-              <MappingFragment StoreEntitySet="CamereUnitati">
-                <ScalarProperty Name="IDUnitate" ColumnName="IDUnitate" />
-                <ScalarProperty Name="IDTipCamera" ColumnName="IDTipCamera" />
-                <ScalarProperty Name="NrDisp" ColumnName="NrDisp" />
-                <ScalarProperty Name="Pret" ColumnName="Pret" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RecenziiUnitati">
-            <EntityTypeMapping TypeName="BookingModel.RecenziiUnitati">
-              <MappingFragment StoreEntitySet="RecenziiUnitati">
-                <ScalarProperty Name="IDUnitate" ColumnName="IDUnitate" />
-                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
-                <ScalarProperty Name="Continut" ColumnName="Continut" />
-                <ScalarProperty Name="Rate" ColumnName="Rate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="RezervariUsers">
-            <EntityTypeMapping TypeName="BookingModel.RezervariUsers">
-              <MappingFragment StoreEntitySet="RezervariUsers">
-                <ScalarProperty Name="IDRezervare" ColumnName="IDRezervare" />
-                <ScalarProperty Name="IDUnitate" ColumnName="IDUnitate" />
-                <ScalarProperty Name="IDUser" ColumnName="IDUser" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

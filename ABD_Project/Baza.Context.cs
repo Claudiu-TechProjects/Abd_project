@@ -25,16 +25,16 @@ namespace ABD_Project
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<CamereOcupate> CamereOcupate { get; set; }
+        public virtual DbSet<CamereUnitati> CamereUnitati { get; set; }
         public virtual DbSet<FacilitatiDisponibile> FacilitatiDisponibile { get; set; }
         public virtual DbSet<FacilitatiRezervare> FacilitatiRezervare { get; set; }
+        public virtual DbSet<RecenziiUnitati> RecenziiUnitati { get; set; }
         public virtual DbSet<Rezervari> Rezervari { get; set; }
+        public virtual DbSet<RezervariUsers> RezervariUsers { get; set; }
         public virtual DbSet<TipCamera> TipCamera { get; set; }
         public virtual DbSet<TipFacilitate> TipFacilitate { get; set; }
         public virtual DbSet<Unitati> Unitati { get; set; }
         public virtual DbSet<Users> Users { get; set; }
-        public virtual DbSet<CamereOcupate> CamereOcupate { get; set; }
-        public virtual DbSet<CamereUnitati> CamereUnitati { get; set; }
-        public virtual DbSet<RecenziiUnitati> RecenziiUnitati { get; set; }
-        public virtual DbSet<RezervariUsers> RezervariUsers { get; set; }
     }
 }

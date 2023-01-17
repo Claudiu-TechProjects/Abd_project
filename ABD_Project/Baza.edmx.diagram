@@ -4,32 +4,32 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4b7a26aec99a4b899584a359919da820" Name="Diagram1">
-        <EntityTypeShape EntityType="BookingModel.FacilitatiDisponibile" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookingModel.FacilitatiRezervare" Width="1.5" PointX="9" PointY="6.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookingModel.Rezervari" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookingModel.TipCamera" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookingModel.TipFacilitate" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookingModel.Unitati" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookingModel.Users" Width="1.5" PointX="3.75" PointY="14" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookingModel.CamereOcupate" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookingModel.CamereUnitati" Width="1.5" PointX="3" PointY="10.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookingModel.RecenziiUnitati" Width="1.5" PointX="6" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="BookingModel.RezervariUsers" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
-        <AssociationConnector Association="BookingModel.FK__Facilitat__IDTip__3E52440B" ManuallyRouted="false" />
-        <AssociationConnector Association="BookingModel.FK__Facilitat__IDUni__3D5E1FD2" ManuallyRouted="false" />
-        <AssociationConnector Association="BookingModel.FK__Facilitat__IDRez__412EB0B6" ManuallyRouted="false" />
+      <Diagram DiagramId="bf72f16914194b5e85921b64a6cc4e96" Name="Diagram1">
+        <EntityTypeShape EntityType="BookingModel.CamereOcupate" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingModel.CamereUnitati" Width="1.5" PointX="6" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingModel.FacilitatiDisponibile" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingModel.FacilitatiRezervare" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingModel.RecenziiUnitati" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingModel.Rezervari" Width="1.5" PointX="3.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingModel.RezervariUsers" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingModel.TipCamera" Width="1.5" PointX="1.5" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingModel.TipFacilitate" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingModel.Unitati" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookingModel.Users" Width="1.5" PointX="3.75" PointY="15.5" IsExpanded="true" />
+        <AssociationConnector Association="BookingModel.FK__CamereOcu__IDTip__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingModel.FK__CamereOcu__IDUni__300424B4" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingModel.FK__CamereUni__IDTip__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingModel.FK__CamereUni__IDUni__33D4B598" ManuallyRouted="false" />
         <AssociationConnector Association="BookingModel.FK__Facilitat__IDTip__4222D4EF" ManuallyRouted="false" />
-        <AssociationConnector Association="BookingModel.FK__Rezervari__IDRez__36B12243" ManuallyRouted="false" />
-        <AssociationConnector Association="BookingModel.FK__Rezervari__IDTip__34C8D9D1" ManuallyRouted="false" />
-        <AssociationConnector Association="BookingModel.FK__CamereOcu__IDTip__2F10007B" ManuallyRouted="false" />
-        <AssociationConnector Association="BookingModel.FK__CamereUni__IDTip__31EC6D26" ManuallyRouted="false" />
-        <AssociationConnector Association="BookingModel.FK__CamereOcu__IDUni__2E1BDC42" ManuallyRouted="false" />
-        <AssociationConnector Association="BookingModel.FK__CamereUni__IDUni__30F848ED" ManuallyRouted="false" />
-        <AssociationConnector Association="BookingModel.FK__RecenziiU__IDUni__29572725" ManuallyRouted="false" />
-        <AssociationConnector Association="BookingModel.FK__Rezervari__IDUni__37A5467C" ManuallyRouted="false" />
-        <AssociationConnector Association="BookingModel.FK__RecenziiU__IDUse__2A4B4B5E" ManuallyRouted="false" />
-        <AssociationConnector Association="BookingModel.FK__Rezervari__IDUse__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingModel.FK__Facilitat__IDUni__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingModel.FK__Facilitat__IDRez__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingModel.FK__Facilitat__IDTip__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingModel.FK__RecenziiU__IDUni__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingModel.FK__RecenziiU__IDUse__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingModel.FK__Rezervari__IDRez__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingModel.FK__Rezervari__IDTip__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingModel.FK__Rezervari__IDUni__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="BookingModel.FK__Rezervari__IDUse__3C69FB99" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -24,8 +24,13 @@ namespace ABD_Project.Pages
     {
          int photoIndex=1;
         string numeHotel;
+        int idCamera;
+        List<Tuple<string, int>> numeFacilitate=new List<Tuple<string, int>>();
+        int idTipCamera;
+        int index = 0;
         DateTime data_inceput;
         DateTime data_sfarsit;
+        int total=0;
         
         public Hotel(string nume, DateTime data_i,DateTime data_s)
         {
@@ -115,6 +120,104 @@ namespace ABD_Project.Pages
         private void Rezervare(object sender, RoutedEventArgs e)
         {
 
+            foreach(var x in numeFacilitate)
+            {
+                total = total + x.Item2;
+            }
+            
+            using(var context =new BookingEntities() )
+            { 
+                var pretCam = (from c in context.CamereUnitati
+                               join u in context.Unitati on c.IDUnitate equals u.IDUnitate
+                               where u.Nume == numeHotel && c.IDTipCamera == idTipCamera
+                               select c.Pret).FirstOrDefault();
+                total = total + pretCam;
+            
+            
+                Rezervari rez = new Rezervari
+                {
+                    IDTipCamera=idTipCamera,
+                    StartDate = data_inceput,
+                    EndDate = data_sfarsit,
+                    PretTotal = total
+                    
+                };
+
+                context.Rezervari.Add(rez);
+
+                
+
+            
+
+
+
+          
+              
+                var idUni = (from c in context.Unitati
+                             where c.Nume == numeHotel
+                             select c.IDUnitate).FirstOrDefault();
+               
+               
+            
+
+            
+
+            var idj = (from j in context.Rezervari
+                               orderby j.IDRezervare descending
+                               select j.IDRezervare).First();
+
+
+
+                CamereOcupate cam1 = new CamereOcupate
+                {
+                    IDUnitate = idUni,
+                    IDTipCamera = idTipCamera,
+                    DataInceput = data_inceput,
+                    DataSfarsit = data_sfarsit
+
+                };
+
+                    context.CamereOcupate.Add(cam1);
+                
+            
+
+           
+
+            
+            
+
+                foreach (var C in numeFacilitate)
+                {
+                    var idF=(from a in context.TipFacilitate 
+                             where a.Denumire==C.Item1 
+                             select a.IDTipFacilitate).FirstOrDefault();
+
+                    FacilitatiRezervare fac = new FacilitatiRezervare
+                    {
+                        IDRezervare = idj,
+                       IDTipFacilitate=idF
+
+                    };
+
+                    context.FacilitatiRezervare.Add(fac);
+                }
+                
+                
+
+                    RezervariUsers RezvUSer = new RezervariUsers
+                    {
+                        IDRezervare = idj,
+                        IDUnitate = idUni,
+                        IDUser=CurrentUser.user.IDUser
+
+                    };
+
+                    context.RezervariUsers.Add(RezvUSer);
+
+
+                context.SaveChanges();
+            }
+            
         }
 
         private void btn_Next_Photo(object sender, RoutedEventArgs e)
@@ -141,18 +244,22 @@ namespace ABD_Project.Pages
 
         private void AdaugareCamera(object sender, MouseButtonEventArgs e)
         {
+           DataGridRezervare.Items.Add(CamereDisp.SelectedItem);
             var rez = CamereDisp.SelectedItem.ToString().Split(' ');
-            DataGridRezervare.Items.Add(rez[0]);
-            DataGridRezervare.Items.Add((string)rez[1]);
-            DataGridRezervare.ItemsSource = rez;
-            ///
+
+
+            idTipCamera = Int32.Parse(rez[3].Substring(0, rez[3].Length - 1));
         }
 
         private void AdaugareFaciliate(object sender, MouseButtonEventArgs e)
         {
             var rez = DataGridFacilitati.SelectedItem.ToString().Split(' ');
-            DataGridRezervare.Items.Add(rez[0]);
-            ///
+            DataGridRezervare.Items.Add(rez);
+            string x =rez[3].Substring(0, rez[3].Length - 1);
+            int y = Int32.Parse(rez[6]);
+            numeFacilitate.Add( Tuple.Create(x, y));
+            index++;
+            //numeFacilitate.Add(Tuple.Create(x, y));
         }
     }
 }

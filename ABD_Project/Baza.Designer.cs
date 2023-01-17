@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\David\Desktop\ABD_Proiect\Abd_project\ABD_Project\Baza.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Facultate\Anul 3\Sem1\Aplicatii cu baze de date\Proiect\TEMA_ABD\Abd_project\ABD_Project\Baza.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

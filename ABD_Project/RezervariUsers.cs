@@ -14,6 +14,7 @@ namespace ABD_Project
     
     public partial class RezervariUsers
     {
+        public int IDRezUs { get; set; }
         public int IDRezervare { get; set; }
         public int IDUnitate { get; set; }
         public int IDUser { get; set; }

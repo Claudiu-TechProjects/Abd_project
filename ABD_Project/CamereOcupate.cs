@@ -14,6 +14,7 @@ namespace ABD_Project
     
     public partial class CamereOcupate
     {
+        public int IDcam { get; set; }
         public int IDUnitate { get; set; }
         public int IDTipCamera { get; set; }
         public System.DateTime DataInceput { get; set; }
